@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Художественная мастерская "Школа иконы"</title>
+    <link rel="icon" type="image/png" href="../img/icons/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <script defer src="../js/script.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header schoolicon__header">
+        <div class="header__container flex container">
+          <div class="hero__sidebar flex">
+            <button class="hero__button" aria-label="Кнопка поиска">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero__button-image">
+                <rect width="7.56126" height="1.89031" transform="matrix(0.713342 0.700816 -0.713342 0.700816 18.6064 17.3762)"></rect>
+                <path d="M20.9303 10.7726C20.9303 16.1533 16.4855 20.5452 10.9652 20.5452C5.44478 20.5452 1 16.1533 1 10.7726C1 5.39198 5.44478 1 10.9652 1C16.4855 1 20.9303 5.39198 20.9303 10.7726Z" stroke-width="2"></path>
+              </svg>
+            </button>
+            <a href="tel:+79445678678" class="hero_phone">+7 944 567 86 78</a>
+            <ul class="hero__social">
+              <li class="hero__social-item">
+                <a href="#" class="hero__social-link">
+                  <img src="../img/icons/vk.png" alt="Вконтакте">
+                </a>
+              </li>
+              <li class="hero__social-item">
+                <a href="#" class="hero__social-link">
+                  <img src="../img/icons/instagram.png" alt="Инстаграм">
+                </a>
+              </li>
+              <li class="hero__social-item">
+                <a href="#" class="hero__social-link">
+                  <img src="../img/icons/telegram.png" alt="Телеграм">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="header__content">  
+            <a href="../index.html" class="header__logo">
+                <img src="../img/icons/logo-menu.png" alt="Логотип">
+              </a>
+            <nav class="header__nav">
+              <ul class="header__list flex">
+                <li class="header__list-item">
+                  <a href="../index.html" class="header__list-link header__list-link-1">О школе</a>
+                </li>
+                <li class="header__list-item">
+                  <a href="#" class="header__list-link header__list-link-2">Иконописная мастерская</a>
+                </li>
+                <li class="header__list-item">
+                  <a href="../blocks/artschool.html" class="header__list-link header__list-link-3">Художественная студия</a>
+                </li>
+                <li class="header__list-item">
+                  <a href="../blocks/schadule.html" class="header__list-link header__list-link-4">Расписание и стоимость</a>
+                </li>
+                <li class="header__list-item">
+                  <a href="../blocks/classes.html" class="header__list-link header__list-link-5">Мастер-классы</a>
+                </li>
+                <li class="header__list-item">
+                  <a href="../blocks/artstore.html" class="header__list-link header__list-link-6">Лавка иконописца</a>
+                </li>
+                <li class="header__list-item">
+                  <a href="../blocks/news.html" class="header__list-link header__list-link-7">Новости</a>
+                </li>
+                <li class="header__list-item">
+                  <a href="../blocks/contacts.html" class="header__list-link header__list-link-8">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <button class="burger" aria-label="Кнопка бургер-меню">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+          </button>
+        </div>
+      </header>
+      <main class="main">
+        <section class="main-screen section-offset">
+          <div class="main-screen__slider swiper">
+            <div class="main-screen__wrapper swiper-wrapper">
+              <div
+                class="main-screen__slide main-screen__slide-1 swiper-slide"
+              ></div>
+              <div
+                class="main-screen__slide main-screen__slide-2 swiper-slide"
+              ></div>
+              <div
+                class="main-screen__slide main-screen__slide-3 swiper-slide"
+              ></div>
+            </div>
+            <div class="main-screen__remoute flex swiper-pagination">
+              <span
+                class="swiper-pagination__item swiper-pagination-active"
+              ></span>
+              <span class="swiper-pagination__item"></span>
+              <span class="swiper-pagination__item"></span>
+            </div>
+          </div>
+          <div class="main-screen__content screen-content flex">
+            <h1 class="screen-content__title">
+              <span>Иконописная</span> мастерская
+            </h1>
+            <p class="screen-content-text">
+              Занятия для всех, кто желает овладеть древним искусством иконописи
+            </p>
+  <!--           <button
+              class="screen-content__button button"
+              aria-label="Кнопка заказать расчет"
+            >
+              Записаться
+            </button> -->
+          </div>
+        </section>
+        <section class="about schoolicon section-offset">
+          <div class="about__container container">
+              <h2 class="section-title"><span>Школа</span> иконы</h2>
+              <div class="about__content">
+                <div class="about__content-block schoolicon__content-block content-block content-block-2 flex">
+                  <div class="content-block-left schoolicon__content-block-left block-left">
+                  </div>
+                  <div class="content-block-right block-right flex">
+                    <p class="block-right__text">Открывает свои двери в&nbsp;уникальный мир иконописи!</p>
+                    <p class="block-right__text">Мы&nbsp;начинаем свой путь в&nbsp;историческом месте Патриаршего подворья храма&nbsp;св. вмч. Димитрия Солунского.</p>
+                    <p class="block-right__text">Наша задача продолжить традиции древнего православного искусства, используя технологии канонического иконописания.</p>
+                    <p class="block-right__text">Уютная атмосфера просторных мастерских позволит окунуться в творческий процесс, доводя свои умения и навыки до высшего мастерства.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="schoolicon__text">Свои  знания,  секреты  ремесла 
+                и  духовный  опыт  наши  мастера 
+                с большой любовью передадут своим ученикам.
+              </div>
+              <div class="about__content schoolicon__content">
+                <div class="about__content-block schoolicon__content-block-2 content-block content-block-2 flex">
+                  <div class="content-block-left schoolicon__content-block-left block-left">
+                  </div>
+                  <div class="content-block-right block-right flex">
+                    <p class="block-right__text">Бессмертные творения Рублева,</p>
+                    <p class="block-right__text">Иконы Византии золотой...</p>
+                    <p class="block-right__text">А&nbsp;рядом&nbsp;&mdash; пусть&nbsp;&mdash; как ласковое слово,</p>
+                    <p class="block-right__text">Спокойный лик пророчицы седой.</p>
+                    <div class="content-block__sign">Л. Голубицкая-Басс, 1959</div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+        <section class="tutors schoolicon section-offset">
+          <div class="about__container container">
+              <h2 class="section-title"><span>Наши</span> преподаватели</h2>
+              <div class="about__content">
+                <div class="about__content-block schoolicon__content-block content-block content-block-2 flex">
+                  <div class="content-block-left schoolicon__content-block-left block-left">
+                  </div>
+                  <div class="content-block-right block-right flex">
+                    <p class="block-right__text">Галина Вячеславовна&nbsp;&mdash; наш опытный мастер.</p>
+                    <p class="block-right__text">За&nbsp;ее&nbsp;хрупкими плечами огромный опыт и&nbsp;багаж знаний, которыми наш педагог будет рада поделиться со&nbsp;своими учениками.</p>
+                    <p class="block-right__text">Множество икон, написанных кистью Галины Вячеславовны, украшают убранство храмов России.</p>
+                    <div class="content-block__sign">
+                      <div class="content-block__title">Проскурина 
+                        Галина Вячеславовна</div>
+                      <div class="content-block__subtitle">художник-иконописец</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="schoolicon__text">Роспись храмов&nbsp;&mdash; еще одно достояние нашего преподавателя. Храмы, расписанные как под руководством нашего педагога, так и&nbsp;в&nbsp;составе художественной группы иконописцев, поражают прихожан своей красотой в&nbsp;России и&nbsp;за&nbsp;рубежом.
+              </div>
+              <div class="tutors-works">
+                <div class="tutors-works__wrapper flex">
+                  <div
+                    class="tutors-works__slide tutors-works__slide-1"
+                  ></div>
+                  <div
+                    class="tutors-works__slide tutors-works__slide-2"
+                  ></div>
+                  <div
+                    class="tutors-works__slide tutors-works__slide-3"
+                  ></div>
+                </div>
+              </div>
+              <div class="tutors__more">Узнать подробнее<span>о преподавателе</span>
+                <a href="#" class="tutots__more-link about__more-arrow"></a>
+              </div>
+          </div>
+        </section>
+        <section class="works-galery schoolicon section-offset">
+          <div class="about__container container">
+              <h2 class="section-title"><span>Галерея</span> работ учеников</h2>
+              <div class="tutors-works">
+                <div class="tutors-works__wrapper flex">
+                  <div
+                    class="tutors-works__slide"
+                  >
+                  <img src="../img/schoolicon/09.jpg" alt="">
+                  </div>
+                  <div
+                    class="tutors-works__slide"
+                  >
+                  <img src="../img/schoolicon/10.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__container container">
+          <div class="footer__content">
+            <a href="#" class="footer__logo">
+              <img src="../img/icons/logo-menu.png" alt="Логотип">
+            </a>
+            <nav class="footer__nav">
+              <ul class="footer__list flex">
+                <li class="footer__list-item">
+                    <a href="../index.html" class="footer__list-link footer__list-link-1">О школе</a>
+                </li>
+                <li class="footer__list-item">
+                    <a href="#" class="footer__list-link footer__list-link-2">Иконописная мастерская</a>
+                </li>
+                <li class="footer__list-item">
+                    <a href="../blocks/artschool.html" class="footer__list-link footer__list-link-3">Художественная студия</a>
+                </li>
+                <li class="footer__list-item">
+                    <a href="../blocks/schadule.html" class="footer__list-link footer__list-link-4">Расписание и стоимость</a>
+                </li>
+                <li class="footer__list-item">
+                    <a href="../blocks/classes.html" class="footer__list-link footer__list-link-5">Мастер-классы</a>
+                </li>
+                <li class="footer__list-item">
+                    <a href="../blocks/artstore.html" class="footer__list-link footer__list-link-6">Лавка иконописца</a>
+                </li>
+                <li class="footer__list-item">
+                    <a href="../blocks/news.html" class="footer__list-link footer__list-link-7">Новости</a>
+                </li>
+                <li class="footer__list-item">
+                    <a href="../blocks/contacts.html" class="footer__list-link footer__list-link-8">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="footer__contacts flex">
+              <ul class="footer__social flex">
+                <li class="footer__social-item">
+                  <a href="#" class="footer__social-link">
+                    <img src="../img/icons/vk.png" alt="Вконтакте">
+                  </a>
+                </li>
+                <li class="footer__social-item">
+                  <a href="#" class="footer__social-link">
+                    <img src="../img/icons/instagram.png" alt="Инстаграм">
+                  </a>
+                </li>
+                <li class="footer__social-item">
+                  <a href="#" class="footer__social-link">
+                    <img src="../img/icons/telegram.png" alt="Телеграм">
+                  </a>
+                </li>
+              </ul>
+              <a href="tel:+79445678678" class="footer__phone">+7 944 567 86 78</a>
+            </div>
+            <div class="footer__rights flex">
+              <div class="footer__rights-left">2023 “Школа иконы”</div>
+              <div class="footer__rights-right">www.numberone.ru</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="go-top">
+        <img src="../img/icons/arrow-top.png" alt="Наверх">
+      </div>
+    </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  </body>
+</html>
