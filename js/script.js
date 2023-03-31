@@ -21,9 +21,9 @@ burger.addEventListener('click', function() {
 const swiper = new Swiper('.swiper', {
     slidePerView: 1,
     loop: true,
-	autoplay: {
+/* 	autoplay: {
 		delay: 7000,
-	},
+	}, */
 
 	// Navigation arrows
 	navigation: {
@@ -130,4 +130,22 @@ function init(){
 	myMap.controls.remove('typeSelector');
 	myMap.controls.remove('fullscreenControl');
 	myMap.controls.remove('zoomControl');
+}
+
+/*Разворачивание новаостей*/
+function readMore() {
+	const dots = document.getElementById("dots");
+	const more = document.getElementById("more");
+	const newsMore = document.getElementById("news-more");
+
+	if(dots.style.display === "none") {
+		dots.style.display = "inline";
+		newsMore.innerHTML = "Подробнее";
+		more.style.display = "none";
+
+	} else  {
+		dots.style.display = "none";
+		newsMore.innerHTML = "Скрыть";
+		more.style.display = "inline";
+	}
 }

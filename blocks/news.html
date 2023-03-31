@@ -54,7 +54,7 @@
                   <a href="../index.html" class="header__list-link header__list-link-1">О школе</a>
                 </li>
                 <li class="header__list-item">
-                  <a href="#" class="header__list-link header__list-link-2">Иконописная мастерская</a>
+                  <a href="../blocks/iconschool.html" class="header__list-link header__list-link-2">Иконописная мастерская</a>
                 </li>
                 <li class="header__list-item">
                   <a href="../blocks/artschool.html" class="header__list-link header__list-link-3">Художественная студия</a>
@@ -69,7 +69,7 @@
                   <a href="../blocks/artstore.html" class="header__list-link header__list-link-6">Лавка иконописца</a>
                 </li>
                 <li class="header__list-item">
-                  <a href="../blocks/news.html" class="header__list-link header__list-link-7">Новости</a>
+                  <a href="#" class="header__list-link header__list-link-7">Новости</a>
                 </li>
                 <li class="header__list-item">
                   <a href="../blocks/contacts.html" class="header__list-link header__list-link-8">Контакты</a>
@@ -84,139 +84,59 @@
           </button>
         </div>
       </header>
-      <main class="main main-schoolicon">
-        <section class="main-screen section-offset">
+      <main class="main news">
+        <section class="main-screen block-offset">
           <div class="main-screen__slider swiper">
-            <div class="main-screen__wrapper swiper-wrapper">
-              <div
-                class="main-screen__slide main-screen__slide-1 swiper-slide"
-              ></div>
-              <div
-                class="main-screen__slide main-screen__slide-2 swiper-slide"
-              ></div>
-              <div
-                class="main-screen__slide main-screen__slide-3 swiper-slide"
-              ></div>
-            </div>
-            <div class="main-screen__remoute flex swiper-pagination">
-              <span
-                class="swiper-pagination__item swiper-pagination-active"
-              ></span>
-              <span class="swiper-pagination__item"></span>
-              <span class="swiper-pagination__item"></span>
-            </div>
+              <div class="main-screen__wrapper swiper-wrapper">
+                  <div
+                      class="main-screen__slide main-screen__slide-1 swiper-slide"
+                  ></div>
+                  <div
+                      class="main-screen__slide main-screen__slide-2 swiper-slide"
+                  ></div>
+                  <div
+                      class="main-screen__slide main-screen__slide-3 swiper-slide"
+                  ></div>
+              </div>
+              <div class="main-screen__remoute flex swiper-pagination">
+                  <span
+                      class="swiper-pagination__item swiper-pagination-active"
+                  ></span>
+                  <span class="swiper-pagination__item"></span>
+                  <span class="swiper-pagination__item"></span>
+              </div>
           </div>
           <div class="main-screen__content screen-content flex">
-            <h1 class="screen-content__title">
-              <span>Иконописная</span> мастерская
-            </h1>
-            <p class="screen-content-text">
-              Занятия для всех, кто желает овладеть древним искусством иконописи
-            </p>
-            <button
-            class="screen-content__btn btn"
-            aria-label="Кнопка заказать расчет"
-            >
-            Записаться
-            </button>
+              <h1 class="screen-content__title">
+              <span>Наши</span> новости
+              </h1>
+              <p class="screen-content-text">
+                Всё самое интересное и увлекательное о нас здесь!
+              </p>
+              <button
+              class="screen-content__btn btn"
+              aria-label="Кнопка заказать расчет"
+              >
+              Записаться
+              </button>
           </div>
-        </section>
-        <section class="about schoolicon section-offset">
-          <div class="about__container container">
-              <h2 class="section-title"><span>Школа</span> иконы</h2>
-              <div class="about__content">
-                <div class="about__content-block schoolicon__content-block content-block content-block-1 flex">
-                  <div class="content-block-left schoolicon__content-block-left block-left">
-                  </div>
-                  <div class="content-block-right block-right flex">
-                    <p class="block-right__text">Открывает свои двери в&nbsp;уникальный мир иконописи!</p>
-                    <p class="block-right__text">Мы&nbsp;начинаем свой путь в&nbsp;историческом месте Патриаршего подворья храма&nbsp;св. вмч. Димитрия Солунского.</p>
-                    <p class="block-right__text">Наша задача продолжить традиции древнего православного искусства, используя технологии канонического иконописания.</p>
-                    <p class="block-right__text">Уютная атмосфера просторных мастерских позволит окунуться в творческий процесс, доводя свои умения и навыки до высшего мастерства.</p>
-                    <p class="block-right__text-hidden">Свои  знания,  секреты  ремесла 
-                      и  духовный  опыт  наши  мастера 
-                      с большой любовью передадут своим ученикам.</p>
-                  </div>
-                </div>
+      </section>
+      <section class="news-content block-offset">
+        <div class="news-content__container container">
+          <div class="news-content__body content-news flex">
+            <div class="content-news__img">
+              <img src="../img/news/02.jpg" alt="Фото">
+            </div><div class="content-news__wrapper">
+              <h4 class="content-news__title">1&nbsp;апреля&nbsp;&mdash; Грандиозное открытие мастерской-студии &laquo;Школа иконы&raquo;</h4>
+              <div class="content-news__text">&laquo;Школа иконы&raquo;. Под таким названием 1&nbsp;апреля состоялось торжественное открытие<span id="dots">...</span><span id="more"> иконописной мастерской и&nbsp;художественной студии</span></div>
+              <div class="content-news__link">
+                <button id="news-more" onclick="readMore()" class="content-news__btn">Подробнее</button>
               </div>
-              <div class="schoolicon__text">Свои  знания,  секреты  ремесла 
-                и  духовный  опыт  наши  мастера 
-                с большой любовью передадут своим ученикам.
-              </div>
-              <div class="about__content schoolicon__content">
-                <div class="about__content-block schoolicon__content-block-2 content-block content-block-2 flex">
-                  <div class="content-block-left schoolicon__content-block-left block-left">
-                  </div>
-                  <div class="content-block-right block-right flex">
-                    <p class="block-right__text">Бессмертные творения Рублева,</p>
-                    <p class="block-right__text">Иконы Византии золотой...</p>
-                    <p class="block-right__text">А&nbsp;рядом&nbsp;&mdash; пусть&nbsp;&mdash; как ласковое слово,</p>
-                    <p class="block-right__text">Спокойный лик пророчицы седой.</p>
-                    <div class="content-block__sign">Л. Голубицкая-Басс, 1959</div>
-                  </div>
-                </div>
-              </div>
+            </div>
           </div>
-        </section>
-        <section class="tutors schoolicon section-offset">
-          <div class="about__container container">
-              <h2 class="section-title"><span>Наши</span> преподаватели</h2>
-              <div class="about__content">
-                <div class="about__content-block schoolicon__content-block content-block content-block-2 flex">
-                  <div class="content-block-left schoolicon__content-block-left block-left">
-                  </div>
-                  <div class="content-block-right block-right flex">
-                    <div class="content-block__sign">
-                      <div class="content-block__title">Проскурина 
-                        Галина Вячеславовна</div>
-                      <div class="content-block__subtitle">художник-иконописец</div>
-                    </div>
-                    <p class="block-right__text">Галина Вячеславовна&nbsp;&mdash; наш опытный мастер.</p>
-                    <p class="block-right__text">За&nbsp;ее&nbsp;хрупкими плечами огромный опыт и&nbsp;багаж знаний, которыми наш педагог будет рада поделиться со&nbsp;своими учениками.</p>
-                    <p class="block-right__text">Множество икон, написанных кистью Галины Вячеславовны, украшают убранство храмов России.</p>
-
-                  </div>
-                </div>
-              </div>
-              <div class="schoolicon__text">Роспись храмов&nbsp;&mdash; еще одно достояние нашего преподавателя. Храмы, расписанные как под руководством нашего педагога, так и&nbsp;в&nbsp;составе художественной группы иконописцев, поражают прихожан своей красотой в&nbsp;России и&nbsp;за&nbsp;рубежом.
-              </div>
-              <div class="tutors-works">
-                <div class="tutors-works__wrapper flex">
-                  <div
-                    class="tutors-works__slide tutors-works__slide-1"
-                  ></div>
-                  <div
-                    class="tutors-works__slide tutors-works__slide-2"
-                  ></div>
-                  <div
-                    class="tutors-works__slide tutors-works__slide-3"
-                  ></div>
-                </div>
-              </div>
-              <div class="tutors__more">Узнать подробнее<span>о преподавателе</span>
-                <a href="#" class="tutots__more-link about__more-arrow"></a>
-              </div>
-          </div>
-        </section>
-        <section class="works-galery schoolicon section-offset">
-          <div class="about__container container">
-              <h2 class="section-title"><span>Галерея</span> работ учеников</h2>
-              <div class="tutors-works">
-                <div class="tutors-works__wrapper flex">
-                  <div
-                    class="tutors-works__slide"
-                  >
-                  <img src="../img/schoolicon/09.jpg" alt="">
-                  </div>
-                  <div
-                    class="tutors-works__slide"
-                  >
-                  <img src="../img/schoolicon/10.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-          </div>
-        </section>
+        </div>
+      </section>
+   
       </main>
       <footer class="footer">
         <div class="footer__container container">
@@ -288,6 +208,6 @@
         <img src="../img/icons/arrow-top.png" alt="Наверх">
       </div>
     </div>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!--     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
   </body>
 </html>
