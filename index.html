@@ -4,19 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Художественная мастерская "Школа иконы"</title>
+    <title>"Школа иконы" - иконописная мастерская и художественная студия</title>
     <link rel="icon" type="image/png" href="./img/icons/favicon.png" />
     <link rel="stylesheet" type="text/css" href="./css/normalize.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta type="keywords" content="школа иконы, иконописная школа, обучение иконописи, художественная студия, для взрослых и детей">
+    <meta name="description" content="Иконописная мастерская и художественная студия Школа иконы приглашает всех, кто желает научиться иконописи и окунуться в мир изобразительного искусства. Иконы в наличии и на заказ. Увлекательные мастер-классы.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <script defer src="./js/script.js"></script>
   </head>
   <body>
+    <video id="video-block" class="video-block" width="100%" height="100%" preload="true" autoplay muted="muted" volume="0">
+      <source src="./video/video.mp4" type="video/mp4">
+    </video>
+    <div class="preloader">
+      <div class="inner">
+        <span class="percentage"><span id="percentage">15</span>%</span>
+      </div>
+      <div class="loader-progress" id="loader-progress"> </div>
+    </div>
     <div class="wrapper">
-      <header class="header">
+      <header class="header header-index">
         <div class="header__container header-index flex container">
           <div class="hero__sidebar sidebar-index flex">
             <button class="hero__button" aria-label="Кнопка поиска">
@@ -25,7 +36,7 @@
                 <path d="M20.9303 10.7726C20.9303 16.1533 16.4855 20.5452 10.9652 20.5452C5.44478 20.5452 1 16.1533 1 10.7726C1 5.39198 5.44478 1 10.9652 1C16.4855 1 20.9303 5.39198 20.9303 10.7726Z" stroke-width="2"></path>
               </svg>
             </button>
-            <a href="tel:+79445678678" class="hero_phone">+7 944 567 86 78</a>
+            <a href="tel:+79895731893" class="hero_phone">+7 989 573 18 93</a>
             <ul class="hero__social">
               <li class="hero__social-item">
                 <a href="https://m.vk.com/schooliconvk" class="footer__social-link">
@@ -56,7 +67,7 @@
                   <a href="./blocks/iconschool.html" class="header__list-link header__list-link-2">Иконописная мастерская</a>
                 </li>
                 <li class="header__list-item">
-                  <a href="./blocks/artstore.html" class="header__list-link header__list-link-3">Художественная студия</a>
+                  <a href="./blocks/artschool.html" class="header__list-link header__list-link-3">Художественная студия</a>
                 </li>
                 <li class="header__list-item">
                   <a href="./blocks/schadule.html" class="header__list-link header__list-link-4">Расписание и стоимость</a>
@@ -76,7 +87,7 @@
               </ul>
             </nav>
           </div>
-          <a href="tel:+79445678678" class="header__menu-phone">+7 944 567 86 78</a>
+          <a href="tel:+79895731893" class="header__menu-phone">+7 989 573 18 93</a>
           <button class="burger" aria-label="Кнопка бургер-меню">
             <span class="burger__line"></span>
             <span class="burger__line"></span>
@@ -84,7 +95,7 @@
           </button>
         </div>
       </header>
-      <main class="main">
+      <main class="main main-index">
         <section class="hero">
           <div class="hero__container container">
             <div class="hero__logo flex">
@@ -109,16 +120,15 @@
                 <div class="about__qoute-text about__qoute-text-3">Дайте ему <span>время</span> вызреть...</div>
               </div>
               <div class="about__qoute-author">И. Тургенев</div>
-              <div class="about__content-block content-block flex">
+              <div class="about__content-block content-block content-block-1 flex">
                 <div class="content-block-left block-left">
                   <figure class = "block-left__founder">
                     <img src="./img/about/04.jpg" alt="Основательница">
                     <figcaption>
                       <div class="block-left__info">
-                        <div class="content-block__title">Наталья Рашина</div>
-                        <div class="content-block__subtitle">Основательница "Школы иконы"</div>
+                        <div class="content-block__title">Наталья Рашина,</div>
+                        <div class="content-block__subtitle">основательница "Школы иконы"</div>
                       </div>
-
                     </figcaption>
                   </figure>
                 </div>
@@ -136,9 +146,7 @@
                 <div class="about__task-row about__task-row-5">обрести свой <span>творческий путь.</span></div>
               </div>
               <div class="about__task-mobile">
-                <p class="task-mobile__text">Наша задача - раскрыть ваши внутренние силы, научить вас быть духовно грамот- ными, понимать богатый мир изобрази-
-                  тельного искусства и обрести свой твор-
-                  ческий путь.</p>
+                <p class="task-mobile__text">Наша задача - раскрыть ваши внутренние силы, научить вас быть духовно грамотными, понимать богатый мир изобразительного искусства и обрести свой творческий путь.</p>
               </div>
               <div class="about__content-block content-block content-block-2 flex">
                 <div class="content-block-left block-left">
@@ -150,13 +158,12 @@
                   <p class="block-right__text">Мы&nbsp;предлагаем вам два направления обучения: иконописное и&nbsp;художественное.</p>
                 </div>
               </div>
-              <div class="about__more">
-                <div class="about__more-text about__more-text-1">Узнать подробнее</div>
+              <a href="#" class="about__more">
+                <div class="about__more-text about__more-text-1">Узнать подробнее <div class="about__more-text-3"> про мастерскую-студию</div></div>
                 <div class="about__more-text about__more-text-2">
-                  <div class="about__more-text-3">про мастерскую-студию</div>
-                  <a class="about__more-arrow" href="#"></a>
+                  <span class="about__more-arrow"></span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </section>
@@ -248,7 +255,7 @@
                     </a>
                   </li>
                 </ul>
-                <a href="tel:+79445678678" class="footer__phone">+7 944 567 86 78</a>
+                <a href="tel:+79895731893" class="footer__phone">+7 989 573 18 93</a>
               </div>
             </div>
             <div class="footer__rights flex">
@@ -263,5 +270,7 @@
       </div>
     </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../libs/inputmask.min.js"></script>
   </body>
 </html>

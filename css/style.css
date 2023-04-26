@@ -72,7 +72,7 @@ button {
 }
 
 :root {
-    --light: #F4ECDB;
+    --light: #FFFBF2;
     --blue: #2F4C73;
     --brown: #593202;
     --black: #000000;
@@ -86,9 +86,11 @@ body {
     line-height: 1.6;
     color: var(--black);
 }
-
+body.lock {
+    overflow: hidden;
+}
 .wrapper {
-    background-color: var(--light);
+    background-color: #FFFBF2;
     overflow-x: hidden;
 }
 .container {
@@ -139,7 +141,7 @@ body {
 /*     border-radius: 16px; */
     display: inline-block;
     background-color: transparent;
-    transition: background-color 0.3s linear;
+    transition: background-color 0.5s linear;
     outline: none;
     overflow: hidden;
     border: 2px solid #FFD572;
@@ -148,7 +150,10 @@ body {
 
 .btn:focus,
 .btn:hover {
-    background-color: var(--orange-light);
+    background-color: var(--blue);
+    color: var(--light) ;
+    border: 2px solid var(--light);
+
 }
 
 .btn:active {
@@ -157,8 +162,8 @@ body {
 
 .btn-blue {
     color: var(--blue);
-    border: 1px solid var(--blue);
-    transition: background-color 0.3s linear, color 0.3s linear;
+    border: 2px solid var(--blue);
+    transition: background-color 0.5s linear, color 0.5s linear;
     outline: none;
 }
 
@@ -183,16 +188,23 @@ body {
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.5s ease-in-out;
 }
 
 /*Header*/
 .header {
     position: relative;
     padding: 65px 0 30px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
 }
 .header__menu-phone {
     display: none;
+}
+.schoolicon__header {
+    visibility: visible;
+    opacity: 1;
 }
 
 .header__nav {
@@ -209,7 +221,7 @@ body {
     /* overflow-y: auto; */
     visibility: hidden;
     transform: translateX(120%);
-    transition: visibility 0.3s linear, transform 0.3s linear;
+    transition: visibility 0.9s linear, transform 0.9s linear;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -219,7 +231,7 @@ body {
     margin-left: -112px;
     padding: 120px 112px 120px 0;
     min-height: 300px;
-    height: 100%;
+/*     height: 100%; */
 /*     width: 1770px; */
     flex-direction: column;
 }
@@ -251,10 +263,14 @@ body {
     width: 370px;
     height: 532px;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+.header__list-link:hover {
+    color: var(--brown);
+/*     transform: scale(1.1); */
 }
 .header__list-link-1::before {
-    background: url('../img/menu/01.jpg')  no-repeat;
+    background: url('../img/menu/02.jpg')  no-repeat;
     background-size: contain;
     opacity: 1;
 }
@@ -264,11 +280,11 @@ body {
     opacity: 1;
 }
 .header__list-link-2::before {
-    background: url('../img/menu/02.jpg')  no-repeat;
+    background: url('../img/menu/03.jpg')  no-repeat;
     background-size: contain;
 }
 .header__list-link-2::after {
-    background: url('../img/menu/01.jpg')  no-repeat;
+    background: url('../img/menu/04.jpg')  no-repeat;
     background-size: contain;
 }
 .header__list-link-3::before {
@@ -280,15 +296,15 @@ body {
     background-size: contain;
 }
 .header__list-link-4::before {
-    background: url('../img/menu/01.jpg')  no-repeat;
+    background: url('../img/menu/02.jpg')  no-repeat;
     background-size: contain;
 }
 .header__list-link-4::after {
-    background: url('../img/menu/01.jpg')  no-repeat;
+    background: url('../img/menu/02.jpg')  no-repeat;
     background-size: contain;
 }
 .header__list-link-5::before {
-    background: url('../img/menu/02.jpg')  no-repeat;
+    background: url('../img/menu/03.jpg')  no-repeat;
     background-size: contain;
 }
 .header__list-link-5::after {
@@ -296,11 +312,11 @@ body {
     background-size: contain;
 }
 .header__list-link-6::before {
-    background: url('../img/menu/01.jpg')  no-repeat;
+    background: url('../img/menu/03.jpg')  no-repeat;
     background-size: contain;
 }
 .header__list-link-6::after {
-    background: url('../img/menu/01.jpg')  no-repeat;
+    background: url('../img/menu/04.jpg')  no-repeat;
     background-size: contain;
 }
 .header__list-link-7::before {
@@ -312,11 +328,11 @@ body {
     background-size: contain;
 }
 .header__list-link-8::before {
-    background: url('../img/menu/01.jpg')  no-repeat;
+    background: url('../img/menu/02.jpg')  no-repeat;
     background-size: contain;
 }
 .header__list-link-8::after {
-    background: url('../img/menu/01.jpg')  no-repeat;
+    background: url('../img/menu/02.jpg')  no-repeat;
     background-size: contain;
 }
 .header__list-link {
@@ -324,7 +340,7 @@ body {
     font-weight: 500;
     font-size: 48px;
     color: var(--blue);
-    line-height: 2;
+    line-height: 1.5;
 }
 
 .header__list-link:hover::before,
@@ -336,6 +352,7 @@ body {
 .header__nav--active {
     visibility: visible;
     transform: none;
+    overflow-y: auto;
 
 }
 
@@ -344,7 +361,7 @@ body {
 }
 
 .burger__line:nth-child(2) {
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .burger--active .burger__line:first-child {
@@ -352,11 +369,11 @@ body {
     top: 50%;
     transform: rotate(45deg);
     transform-origin: center;
-    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out, top 0.5s ease-in-out;
 }
 
 .burger__line:first-child {
-    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out, top 0.5s ease-in-out;
 }
 
 .burger--active .burger__line:last-child {
@@ -365,11 +382,11 @@ body {
     top: 50%;
     transform: rotate(-45deg);
     transform-origin: center;
-    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out, top 0.5s ease-in-out;
 }
 
 .burger__line:last-child {
-    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out, top 0.5s ease-in-out;
 }
 
 
@@ -386,8 +403,11 @@ body {
     height: 32px;
     display: block;
     z-index: 1001;
+    transition: transform 0.5s ease-in-out;
 }
-
+.burger:hover {
+    transform: scale(1.1);
+}
 .burger:focus {
     outline: 2px solid var(--orange);
     outline-offset: 5px;
@@ -398,8 +418,9 @@ body {
 }
 
 .burger:hover .burger__line {
-    background-color: var(--brown);
-    transition: background-color 0.3s linear;
+    background-color: var(--blue);
+    transition: background-color 0.5s linear, transform 0.3s linear;
+
 }
 
 .burger:active .burger__line {
@@ -412,7 +433,7 @@ body {
     height: 3px;
     width: 100%;
     background-color: var(--brown);
-    transition: background-color 0.3s linear;
+    transition: background-color 0.5s linear;
 }
 
 .burger__line:first-child {
@@ -439,7 +460,7 @@ body {
     background-color: var(--orange);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s linear, visibility 0.3s linear, background-color 0.3s linear, color 0.3s linear;
+    transition: opacity 0.5s linear, visibility 0.5s linear, background-color 0.5s linear, color 0.5s linear;
 } */
 
 .header__list-link:focus {
@@ -472,22 +493,25 @@ body {
     width: 37px;
     height: 37px;
     outline-offset: 4px;
+    transition: transform 0.5s ease-in-out;
 }
 
 .hero__button-image {
     display: inline-block;
-    width: 37px;
+    width: 22px;
     height: 37px;
     stroke: #FFBA45;
-    transition: stroke 0.3s linear;
+/*     transition: stroke 0.5s linear; */
 }
 
 .hero__button:focus {
     outline: 2px solid var(--orange);
 }
 
-.hero__button:hover .hero__button-image {
-    stroke: var(--black);
+.hero__button:hover {
+/*     stroke: var(--blue); */
+    transform: scale(1.5);
+    
 }
 
 .hero__button--active.hero__button:focus {
@@ -515,8 +539,8 @@ body {
     width: 110px;
     padding: 60px 0;
     flex-direction: column;
-    border-right: 1px solid #FFFFFF;
-    border-bottom: 1px solid #FFFFFF;
+/*     border-right: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF; */
     z-index: 10;
 }
 .hero_phone {
@@ -550,6 +574,10 @@ body {
     margin-bottom: 40px;
 }
 
+.hero__social-item .footer__social-link .cls-2 {
+    fill: #FFBA45;
+}
+
 .hero__logo {
     margin-bottom: 15px;
     padding: 0 145px;
@@ -569,32 +597,30 @@ body {
 
 .hero__content {
     column-gap: 15px;
-    padding-left: 101px;
-/*     padding: 0 15px; */
+/*     padding-left: 101px; */
 }
 
 .hero__content-img {
     flex: 1 0 30%;
- /*    min-height: 887px; */
 }
 
 .hero__content-img-1 {
-    background: url("../img/about/01.jpg") center no-repeat;
-    background-size: contain;
+    background: url("../img/about/07.jpg") center no-repeat;
+    background-size: cover;
     height: 743px;
 }
 
 .hero__content-img-2 {
-    background: url("../img/about/02.jpg") center no-repeat;
-    background-size: contain;
-    height: 887px;
+    background: url("../img/about/08.jpg") center no-repeat;
+    background-size: cover;
+    height: 743px;
 
 
 }
 
 .hero__content-img-3 {
-    background: url("../img/about/03.jpg") center no-repeat;
-    background-size: contain;
+    background: url("../img/about/09.jpg") center no-repeat;
+    background-size: cover;
     height: 736px;
 
 }
@@ -728,6 +754,7 @@ body {
 
 .block-right__text {
     width: 100%;
+    position: relative;
 }
 
 .block-right__text:not(:last-child) {
@@ -790,7 +817,7 @@ body {
 } */
 .about .content-block-2 .content-block-left {
     min-height: 1051px;
-    background: url('../img/schoolicon/08.jpg') left top no-repeat;
+    background: url('../img/about/10.jpg') left top no-repeat;
     background-size: contain;
 }
 
@@ -819,28 +846,35 @@ body {
     font-size: 48px;
     line-height: 1.5;
     color: var(--blue);
+    transition: color 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 .about__more::before {
     position: absolute;
     content: "";
-    left: 8%;
-    top: 31%;
+    left: 0;
+    top: -16%;
     width: 100px;
-    height: 187px;
-    background: url('../img/icons/dec-4.svg') right center no-repeat;
+    height: 106px;
+    background: url('../img/icons/dec-4.svg') center no-repeat;
+    background-size: contain;
 }
 
 .about__more-text-1 {
     margin-bottom: 25px;
     margin-right: 30px;
     padding-left: 230px;
+    display: flex;
+}
+.about__more-text-3 {
+    padding-left: 20px;
+    font-style: italic;
+    
 }
 .about__more-text-2 {
     display: flex;
     justify-content: center;
     align-items: baseline;
     text-align: center;
-    font-style: italic;
 }
 
 .about__more {
@@ -848,11 +882,11 @@ body {
 }
 
 .about__more-arrow {
-    margin-left: 50px;
+    margin-left: 20px;
     display: inline-block;
     height: 70px;
     width: 170px;
-    transform: translateY(25px);
+    transform: translateY(10px);
     background: url('../img/icons/arrow-about.svg') center no-repeat;
 }
 
@@ -941,7 +975,12 @@ body {
 }
 .footer__list-link {
     font-size: 24px;
-
+    display: inline-block;
+    transition: transform 0.5s ease-in-out;
+}
+.footer__list-link:hover {
+    transform: scale(1.1);
+/*     color: red; */
 }
 
 .footer__list-item:nth-child(1) {
@@ -972,26 +1011,37 @@ body {
 .cls-1 {
     fill: transparent;
 }
-.cls-2 {
-    fill: #FFBA45;
+.footer__social-link .cls-2 {
+    fill: var(--light);
+    transition: fill 0.5s ease-in-out;
 }
 
-.footer__social-item .cls-2 {
-    fill: #ffffff;
-}
+/* .footer__social-item .cls-2 {
+    fill: var(--light);
+} */
 
 .footer__social-link svg {
     fill:#fff;
     fill-rule:evenodd;
     width: 40px;
     height: 40px;
+    transition: transform 0.5s ease-in-out ;
 }
+
+.footer__social-link:hover svg {
+    transform: scale(1.5);
+} 
 .footer__phone {
+    display: inline-block;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 28px;
     line-height: 1.5;
+    transition:  transform 0.5s ease-in-out;
+}
+.footer__phone:hover {
+    transform: scale(1.1);
 }
 
 .footer__rights-right {
@@ -1028,9 +1078,9 @@ body {
     position: fixed;
     right: 3%;
     bottom: 25%;
-    -webkit-transform: translateY(-40%);
+/*     -webkit-transform: translateY(-40%);
     -ms-transform: translateY(-40%);
-    transform: translateY(-40%);
+    transform: translateY(-40%); */
     cursor: pointer;
     -webkit-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
@@ -1042,14 +1092,15 @@ body {
 }
 
 .go-top:hover {
-    -webkit-animation: none;
+    transform: scale(1.1);
+/*     -webkit-animation: none;
     animation: none;
-    bottom: 40%;
+    bottom: 40%; */
 /*     background-color: #4285B4; */
 }
 
 .go-top:hover .svg__arrow {
-    fill: #ffffff;
+/*     fill: #ffffff; */
 }
 
 .go-top--show {
@@ -1318,16 +1369,18 @@ body {
     line-height: calc(193 / 128);
     color: var(--blue);
     text-transform: uppercase;
+    align-items: flex-start;
 }
 
 .schoolicon .about__content-block {
     margin-bottom: 50px;
+    align-items: flex-start;
 }
 
 .schoolicon .schoolicon__content-block-left {
     min-height: 980px;
     background: url('../img/schoolicon/04.jpg') left top no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 .schoolicon__content-block .content-block-right::after {
@@ -1358,6 +1411,9 @@ body {
     font-size: 64px;
     line-height: 84.5%;
 }
+.main-schoolicon .schoolicon__content-block-2 .content-block-right {
+    padding: 270px 0 161px 100px;
+}
 
 .schoolicon__content-block-2 .content-block-right::before {
     position: absolute;
@@ -1370,10 +1426,16 @@ body {
 .block-right__text-hidden {
     display: none;
 }
-.main-schoolicon .main-screen__content {
+.main-schoolicon .about .content-block__sign {
+    bottom: 16%;
+}
+.main-schoolicon .main-screen__content,
+.artschool .main-screen__content {
     top: 38%;
 }
-
+.works-galery .tutors-works__slide {
+    flex: inherit;
+} 
 
 /* .schoolicon__content-block-2 .content-block-right::before {
     top: -20%;
@@ -1400,7 +1462,7 @@ body {
 /*Tutors*/
 .tutors .schoolicon__content-block-left {
     background-image: url('../img/schoolicon/tutor1.png');
-    background-position: 0;
+    background-position: center;
     background-repeat: no-repeat;
     /* background-size: inherit; */
     min-height: 888px;
@@ -1430,6 +1492,10 @@ body {
     color: var(--blue);
 }
 
+.content-block__sign .content-block__title span {
+    display: block;
+}
+
 .tutors .content-block__subtitle {
     margin-bottom: 100px;
     font-size: 40px;
@@ -1441,9 +1507,7 @@ body {
 .tutors .content-block-2 .block-right::before{
     display: none;
 }
-.tutors .
-
-.tutors-works {
+.tutors .tutors-works {
     margin-bottom: 100px;
 }
 
@@ -1472,10 +1536,20 @@ body {
     font-size: 48px;
     line-height: 145.8%;
     color: var(--blue);
+    transition: color 0.5s ease-in-out;
+    display: inline-block;
+    transition: transform 0.5s ease-in-out;
 }
 
+/* .tutors__more:hover {
+} */
 .tutors__more span {
     font-style: italic;
+}
+.about__more:hover ,
+.tutors__more:hover {
+    transform: scale(1.01);
+    color: var(--brown);
 }
 
 /*Worksgalery*/
@@ -1682,11 +1756,13 @@ body {
     height: 410px;
     border: 2px solid var(--color-blue);
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-
+    transition: transform 0.5s ease-in-out;
     position: relative;
     cursor: pointer;
 
+}
+.questions__card:hover {
+    transform: scale(1.02);
 }
 /*Artsets*/
 .artstore-artsets__title {
@@ -1863,6 +1939,1031 @@ body {
 #more {
     display: none;
 }
+
+/*ARTSCHOOL*/
+.artschool .screen-content__title,
+.main-schoolicon .screen-content__title,
+.schedule .screen-content__title {
+    margin-bottom: 64px;
+}
+
+.artschool .main-screen__slide-1 {
+    background-image: url('../img/artschool/01.jpg');
+}
+
+/* .artschool .main-screen__slide-2 {
+    background-image: url('../img/artschool/01.jpg');
+} 
+
+.artschool .main-screen__slide-3 {
+    background-image: url('../img/artschool/01.jpg');
+}  */
+
+.artschool .schoolicon .schoolicon__content-block-left {
+    background-image: url('../img/artschool/02.jpg');
+}
+.artschool  .about .content-block-2 .content-block-left {
+    background-image: url('../img/artschool/03.jpg');
+}
+.block-right__text:not(:last-child),
+.about__content .block-right__text:first-child {
+    margin-bottom: 35px;
+}
+
+.artschool .about__content .content-block-2  .block-right__text:nth-child(4) {
+    text-align: right;
+}
+.artschool .schoolicon__content-block-2 .content-block-right {
+    padding: 242px 57px 130px 77px;
+    flex: 0 1 64%;
+    text-align: left;
+}
+.artschool .about .content-block__sign {
+    right: 5%;
+}
+
+.artschool .art-tutors .about__content .block-right__text:nth-child(4) {
+    text-align: left;
+}
+
+.artschool .tutors .schoolicon__content-block-left {
+    background-image: url('../img/artschool/04.png');
+}
+.artschool .content-block-left {
+    display: flex;
+/*     flex: 1 1 100%; */
+    gap: 20px;
+}
+.artschool .block-left__founder {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    display: inherit;
+}
+
+.artschool .block-left__info {
+    left: 10px;
+    text-align: left;
+    z-index: 20;
+}
+
+.artschool .block-left__info::before {
+    content: "";
+    position: absolute;
+    left: -50%;
+    top: 0;
+    width: 700px;
+    height: 700px;
+    background-color: rgba(89, 50, 2, 0.65);
+    transform: rotate(11deg);
+}
+
+.artschool .block-left__info .content-block__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.5;
+    position: relative;
+}
+
+.artschool .block-left__info .content-block__subtitle {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.5;
+    position: relative;
+
+}
+
+.artschool .art-tutors .tutors-works__slide {
+    flex-wrap: wrap;
+    min-height: auto;
+}
+
+.artschool .tutors-works__wrapper {
+    gap: 10px;
+    justify-content: normal;
+    align-items: normal;
+}
+.artschool .slide-works__column-1 {
+    flex: 0 1 30%;
+}
+.artschool .slide-works__column-1 img {
+/*     min-height: -webkit-fill-available; */
+}
+.artschool .slide-works__column-2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex: 0 1 63%;
+    position: relative;
+
+}
+
+.slide-works__column-2-top {
+    display: flex;
+    min-height: 460px;
+    gap: 10px;
+    width: 100%;
+}
+.slide-works__column-2-bottom {
+    display: flex;
+    min-height: 270px;
+    gap: 10px;
+    width: 100%;
+}
+
+
+.artschool .art-tutors .tutors-works__slide-1 {
+    background-image: url('../img/artschool/07.jpg');
+    min-height: 737px;
+    background-position: top;
+}
+
+.art-tutors .tutors-works__slide-2 {
+    background-image: url('../img/artschool/08.jpg');
+    flex: 0 1 555px;
+    background-position: top;
+    background-size: cover;
+/*     min-height: 468px; */
+
+
+}
+
+.art-tutors .tutors-works__slide-3 {
+    background-image: url('../img/artschool/09.jpg');
+    flex: 0 1 580px;
+    background-position: top;
+    background-size: cover;
+
+/*     min-height: 468px; */
+
+
+
+}
+
+.art-tutors .tutors-works__slide-4 {
+    background-image: url('../img/artschool/10.jpg');
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex: 0 1 714px;
+    min-height: 297px;
+    background-size: cover;
+
+
+
+}
+
+.art-tutors .tutors-works__slide-5 {
+    background-image: url('../img/artschool/11.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex: 0 1 421px;
+    min-height: 297px;
+    background-size: cover;
+
+
+}
+
+/*TUTORARTPOPUP*/
+.tutor-popup .about__content .content-block-left {
+    min-height: 888px;
+    background-image: url('../img/artschool/04.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tutor-popup .content-block__sign {
+    margin-bottom: 40px;
+    width: 100%;
+}
+.tutor-popup .about__content .content-block__subtitle {
+    margin-bottom: 40px;
+}
+.tutor-popup .content-block__tutorart {
+    background-image: url('../img/icons/woman.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 160px;
+    height: 160px;
+
+}
+.tutor-popup__list-item {
+    list-style: disc;
+}
+.tutor-popup .about__content-block {
+    margin-bottom: 0px;
+}
+
+.tutor-popup .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+    margin-bottom: 15px;
+}
+.classes-content__columns-3  .tutor-popup__column-title {
+    margin-bottom: 0;
+}
+.tutor-popup__list {
+    margin: 0;
+}
+
+.tutor-popup .columns-info-page__item .columns-info-page__link:first-child {
+    margin-bottom: 80px;
+}
+.tutor-popup-galery__img {
+    width: 100%;
+/*     height: 100%; */
+/*     object-fit: cover; */
+}
+.tutor-popup__galery_container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+/*     height: 100%; */
+}
+ 
+.tutor-popup .content-block-2 .block-right::before {
+    display: none;
+}
+.columns-info-page__item-1 {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 5;
+    grid-column-end: 3;
+}
+.columns-info-page__item-2 {
+    grid-row-start: 1;
+    grid-column-start: 3;
+    grid-row-end: 3;
+    grid-column-end: 6;
+}
+.columns-info-page__item-3 {
+    grid-row-start: 3;
+    grid-column-start: 3;
+    grid-row-end: 5;
+    grid-column-end: 6;
+}
+.columns-info-page__item-4 {
+    grid-row-start: 1;
+    grid-column-start: 6;
+    grid-row-end: 2;
+    grid-column-end: 8;
+}
+.columns-info-page__item-5 {
+    grid-row-start: 2;
+    grid-column-start: 6;
+    grid-row-end: 5;
+    grid-column-end: 8;
+}
+
+.tutor-popup {
+    padding: 100px 0;
+}
+.tutor-icon .tutor-icon__text {
+    margin-bottom: 15px;
+}
+.tutor-icon .tutor-popup__galery_container {
+/*     display: grid;  */
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+/*     gap: 0px;
+    height: 100%; */
+}
+.tutor-icon .columns-info-page__item-1 {
+    background-color: #7977c6; 
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 4;
+    grid-column-end: 3;
+}
+.tutor-icon .columns-info-page__item-2 {
+    grid-row-start: 4;
+    grid-column-start: 1;
+    grid-row-end: 7;
+    grid-column-end: 3;
+}
+.tutor-icon .columns-info-page__item-3 {
+    grid-row-start: 1;
+    grid-column-start: 3;
+    grid-row-end: 4;
+    grid-column-end: 5;
+}
+.tutor-icon .columns-info-page__item-4 {
+    grid-row-start: 4;
+    grid-column-start: 3;
+    grid-row-end: 7;
+    grid-column-end: 5;
+}
+.tutor-icon .columns-info-page__item-5 {
+    grid-row-start: 1;
+    grid-column-start: 5;
+    grid-row-end: 4;
+    grid-column-end: 7;
+}
+.tutor-icon .columns-info-page__item-6 {
+    grid-row-start: 4;
+    grid-column-start: 5;
+    grid-row-end: 7;
+    grid-column-end: 7;
+}
+
+.tutor-icon .about__content .content-block-left {
+    background-image: url('../img/schoolicon/tutor1.png');
+}
+
+.sign-up__popup {
+    position: fixed;
+    background-color: rgba(89, 50, 2, 0.3);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1002;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.8s ease 0s;
+}
+.sign-up__popup.open {
+    opacity: 1;
+    visibility: visible;
+}
+.sign-up__popup.open .sign-up__container {
+    transform: perspective(600px) translate(0px, 0%) rotate(0deg);
+    opacity: 1;
+}
+
+.sign-up__popup .column-form__content {
+    margin-right: 0;
+}
+
+.sign-up__popup .artstore-form-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.sign-up__container {
+    position: relative;
+    padding: 70px 50px 50px;
+    background-color: var(--light);
+}
+
+.sign-up__popup .column-form__input, .column-form__textarea {
+    padding: 10px 0 10px 13px;
+    font-size: 20px;
+    background-color: #ffffff;
+    transition: border 0.5s ease-in-out;
+    outline: none;
+
+}
+.sign-up__popup .column-form__textarea:hover,
+.sign-up__popup .column-form__input:hover {
+    border: 1px solid red;
+}
+.sign-up__popup .column-form__textarea:focus,
+.sign-up__popup .column-form__input:focus {
+    border: 1px solid red;
+
+}
+.sign-up__popup .column-form__textarea {
+    min-height: 150px;
+    border: 1px solid #593202;
+    outline: none;
+
+}
+.sign-up__popup .column-form__label {
+    font-size: 24px;
+}
+.sign-up__popup .column-form__input {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    border: 1px solid #593202;
+}
+.sign-up__popup     .column-form__input::placeholder,
+.column-form__textarea::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.4)
+}
+
+.sign-up__popup .btn-blue {
+    padding: 10px 50px;
+    font-size: 24px;
+}
+
+.sign-up__popup .form__button {
+    text-align: center;
+}
+.sign-up__close-btn {
+    display: inline-block;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+}
+.sign-up__close-btn .burger{
+    width: 24px;
+    height: 24px;
+}
+/*POPUPART*/
+.popup-artstore .column-form__label {
+    margin-bottom: 25px;
+}
+.popup-artstore .column-form__label:nth-child(5){
+    margin-bottom: 0;
+}
+.popup-artstore .column-form__input {
+    margin-bottom: 0;
+}
+.popup-artstore .choices__inner {
+    border: 1px solid #593202;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.4);
+    border-radius: 0;
+}
+.popup-artstore .choices__placeholder {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.7);
+}
+.popup-artstore .choices__list--dropdown {
+    top: 0;
+}
+.popup-artstore .choices__item {
+    font-size: 24px;
+}
+.choices .choices__input {
+    color: red;
+}
+.choices[data-type*=select-one] .choices__inner {
+    padding: 0;
+    color: var(--brown);
+}
+.sign-up__popup .choices__inner {
+    min-height: auto;
+}
+.choices__list--single {
+    padding: 4px 16px 4px 13px;
+}
+.sign-up__body {
+    padding: 30px 10px;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.news .column-form__content .column-form__label:nth-child(3) {
+    display: none;
+}
+.card-after {
+    font-size: 24px;
+}
+.element-animation {
+/*     max-width: 1200px;
+    margin: 2rem 0;
+    font-size: 3rem; */
+    
+    /* Скроем элемент в начальном состоянии */
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.element-animation.element-show {
+    opacity: 1;
+    transition: all 1.5s;
+    transform: translateY(0%);
+}
+
+.cont .element-animation:nth-child(2) {
+    transition-delay: 0.25s;
+
+}
+
+.cont .element-animation:nth-child(3) {
+    transition-delay: 0.5s;
+
+}
+/*LOADER*/
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	opacity: 1;
+	-webkit-transition: all 3s ease;
+	-moz-transition: all 3s ease;
+	transition: all 3s ease;
+	transition-duration: 3000ms;
+	-webkit-transition-duration: 3000ms;
+	z-index: 10100;
+	transition-delay: 0.35s;
+    opacity: 1;
+}
+.preloader .inner {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+.preloader:before {
+	content: "";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 200px 100vh 0;
+	border-color: transparent #000000 transparent transparent;
+	position: absolute;
+	left: -200px;
+	top: 0;
+}
+.preloader:after {
+	content: "";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 100vh 0 0 200px;
+	border-color: transparent transparent transparent #000000;
+	position: absolute;
+	right: -200px;
+	top: 0;
+}
+.preloader * {
+	-webkit-transition: all 3s ease;
+	-moz-transition: all 3s ease;
+	transition: all 3s ease;
+	transition-duration: 3000ms;
+	-webkit-transition-duration: 3000ms;
+}
+.transition-overlay {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	bottom: 0;
+	background: #000000;
+	z-index: 9999;
+	-webkit-transition: all 3s ease;
+	-moz-transition: all 3s ease;
+	transition: all 3s ease;
+	transition-duration: 3000ms;
+	-webkit-transition-duration: 3000ms;
+	visibility: hidden;
+}
+.preloader .inner .percentage {
+	width: 100%;
+	font-size: 10vw;
+	line-height: 1;
+	font-weight: 800;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	opacity: 0.2;
+	transition-delay: 0.10s;
+  
+}
+.navigation__transparent.navbar{
+	visibility: hidden;
+}
+.page-loaded .preloader .percentage {
+  transition: all 0.5s ease-in-out;
+	opacity: 0;
+}
+.page-loaded .preloader {
+	visibility: hidden;
+	opacity: 0;
+
+}
+
+.video-block {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s ease;
+  z-index: 1100;
+}
+
+.video-hide {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+.main-index {
+    opacity: 0;
+    visibility: hidden;
+}
+.main-index-display,
+.header-display {
+    opacity: 1;
+    visibility: visible;
+}
+.main-index .column-content__item:not(:last-child) {
+    margin-bottom: 25px;
+}
+.main-index .advantages__content-column {
+    padding: 0;
+}
+.main-index .column-content__list {
+    padding-top: 165px;
+}
+.footer {
+    position: relative;
+}
+.footer .footer__list-link,
+.footer .footer__phone,
+.footer .footer__rights-left,
+.footer .footer__rights-right {
+    color: #ffffff;
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(244,236,219,0.2) 70%, rgba(244,236,219,0) 100%);
+}
+.footer__container {
+    position: relative;
+
+}
+.main-schoolicon .content-block-1 .block-right {
+    background-size: 60px;
+    background-position-y: 29%;
+}
+
+.main-schoolicon .content-block-1 {
+    max-height: 760px;
+    overflow: hidden;
+}
+.main-schoolicon .schoolicon .about__content-block {
+    margin-bottom: 70px;
+}
+.main-schoolicon .schoolicon .content-block-2 {
+    margin-bottom: 35px;
+}
+
+.artschool .tutor-popup .block-right__text:not(:last-child), 
+.artschool .about__content .block-right__text:first-child, 
+.main-schoolicon .tutor-popup .block-right__text:not(:last-child), 
+.main-schoolicon .about__content .block-right__text:first-child {
+    margin-bottom: 25px;
+}
+.main-schoolicon .schoolicon__content-block-2 .content-block-right::before {
+    background-size: 104%;
+}
+
+.main-schoolicon .about .content-block__sign {
+    bottom: 6%;
+}
+.artschool .section-offset,
+.main-schoolicon .section-offset {
+    margin-bottom: 150px;
+}
+.main-schoolicon .about__more-arrow {
+    transform: translateY(26px);
+}
+.main-schoolicon .works-galery .tutors-works__slide {
+    min-height: auto;
+}
+.artschool .schoolicon .schoolicon__content-block-1 {
+    max-height: 780px;
+    overflow: hidden;
+}
+.artschool .schoolicon .schoolicon__content-block-left {
+    min-height: 780px;
+}
+.artschool .content-block-1 .block-right {
+    background-size: 60px;
+    background-position-y: 29%;
+    background-position-x: 102%;
+
+}
+.artschool .schoolicon__content-block-2 .block-right__text {
+    font-size: 57px;
+}
+
+.artschool .schoolicon__content-block-2 .content-block-right {
+    padding: 568px 57px 130px 77px;
+}
+.artschool .schoolicon .schoolicon__content-block-2 .schoolicon__content-block-left,
+.artschool .schoolicon .schoolicon__content-block-1 .schoolicon__content-block-left {
+    min-height: 800px;
+}
+.artschool .schoolicon__text {
+    margin-bottom: 35px;
+}
+.artschool .about__more-arrow {
+    transform: translateY(25px);
+}
+.content-block__diptix {
+    position: relative;
+    font-size: 16px;
+}
+.ticket-content__title {
+    margin-bottom: 71px;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 161.8%;
+    color: var(--blue);
+}
+.ticket-content__item:not(:last-child) {
+    margin-bottom: 30px;
+}
+.ticket-content__item span {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 161.8%;
+    color: #F71919;  
+}
+.ticket-content__welcome {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 161.8%;
+    color: var(--blue);
+    text-align: center;
+}
+.ticket-content__body {
+    margin-bottom: 100px;
+}
+.main-index .hero__content-img-1,
+.main-index .hero__content-img-2,
+.main-index .hero__content-img-3 {
+    height: 804px;
+}
+.main-schoolicon .schoolicon__content-block-2 .content-block-right::before {
+    background: url('../img/schoolicon/column-bg2.png') center no-repeat;
+}
+.main-schoolicon .schoolicon__content-block-2 .content-block-right {
+    padding: 787px 0 161px 100px;
+}
+.main-schoolicon .about .content-block-2 .content-block-left {
+    background-image: url('../img/schoolicon/08.jpg');
+}
+.schedule .main-screen__content {
+    top: 27%;
+}
+.schedule .screen-content__title {
+    line-height: 1;
+}
+.schedule .block-offset {
+    margin-bottom: 50px;
+}
+.artstore .main-screen__content {
+    top: 40%;
+}
+.artstore .section-offset,
+.artstore .block-offset {
+    margin-bottom: 150px;
+}
+.artstore .artstore-order__text {
+    margin-bottom: 50px;
+}
+
+.artschool .main-screen__slide-2 {
+    background-image: url('../img/artschool/21.jpg');
+}
+.artschool .main-screen__slide-3 {
+    background-image: url('../img/artschool/22.jpg');
+}
+/*THANKS*/
+.thanks-wrap {
+    height: 100vh;
+    width: 100vw;
+    background: url('../img/artschool/22.jpg') center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.thanks-wrap::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(89, 50, 2, 0.5);
+    z-index: 2;
+}
+.thanks-wrap__container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.text-center {
+    color: var(--light);
+    font-size: 48px;
+}
+.thanks-text {
+    color: var(--light);
+    font-size: 36px;
+}
+.thans-link {
+    color: var(--light);
+    font-size: 24px;
+    transition: text-decoration 0.5s ease-in-out;
+    text-align: center;
+    display: block;
+}
+.thans-link:hover {
+    text-decoration: underline;
+    color: #ffffff;
+    text-underline-offset: 10px;
+
+}
+/*VISITCARD*/
+.visit-card__wrap {
+    height: 100vh;
+    background: #F5F5F5;
+}
+.visit-card__content {
+    position: relative;
+    padding-top: 140px;
+    padding-bottom: 15px;
+    max-width: 700px;
+    background: #FFFBF2;
+    box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.15);
+
+    background: url('../img/vcard/bg.jpg') center no-repeat;
+    background-size: cover;
+}
+.visit-card__content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: top center;
+    background-position-y: 10px;
+    background-size: 520px;
+    background-image: url('../img/icons/logo-vcard.png');
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+/* .visit-card__content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position-x: 10px;
+    background-position-y: -50%;
+
+    background-size: 195px;
+    background-image: url('../img/vcard/05.png');
+    background-repeat: no-repeat;
+    z-index: 10;
+} */
+
+.visit-card__title {
+    margin-bottom: 25px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(27 / 20);
+    color: var(--brown);
+    text-align: center;
+}
+.body-vcard {
+    display: flex;
+}
+.body-vcard-left,
+.body-vcard-right {
+    flex: 1 1 55%;
+    z-index: 2;
+}
+.body-vcard-left {
+    position: relative;
+    flex: 1 1 45%;
+    padding-left: 90px;
+}
+.body-vcard-right {
+    overflow: hidden;
+}
+.body-vcard-left__item {
+    margin-bottom: 18px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: calc(32 / 24);
+    color: var(--brown);
+}
+.body-vcard-right__link:first-child {
+    background-image: url('../img/vcard/01.svg');
+    background-repeat: no-repeat;    
+    background-position: 20px;
+}
+.body-vcard-right__link:nth-child(2) {
+    background-image: url('../img/vcard/02.svg');
+    background-repeat: no-repeat;    
+    background-position: 20px;
+}
+.body-vcard-right__link:nth-child(3) {
+    background-image: url('../img/vcard/03.svg');
+    background-repeat: no-repeat;    
+    background-position: 15px;
+}
+.body-vcard-right__link:nth-child(4) {
+    background-image: url('../img/vcard/04.svg');
+    background-repeat: no-repeat;    
+    background-position: 20px;
+}
+.body-vcard-right__link {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(22 / 16);
+    color: var(--brown);
+    transform: translateX(35px);
+    padding: 10px 41px 10px 50px;
+    background-color: rgba(242, 185, 80, 0.7);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 41px;
+    transition: transform 0.5s ease-in-out;
+    font-family: 'Source Serif 4', serif;
+}
+.body-vcard-right__link:hover {
+    transform: translateX(0);
+}
+
+.body-vcard-right__link {
+    margin-bottom: 15px;
+}
+.body-vcard-right__social {
+    margin: 0 auto;
+    max-width: 150px;
+}
+.body-vcard-right__social .cls-2 {
+    fill: #642E00;
+}
+.artschool .schoolicon .schoolicon__content-block-left,
+.tutors .schoolicon__content-block-left,
+.tutor-popup .about__content .content-block-left {
+    min-height: 895px;
+}
+
+.main-schoolicon .works-galery .tutors-works__slide {
+    flex: auto;
+}
+.artstore .column-form__textarea {
+    padding: 20px 0 20px 24px;
+    background: #F4ECDB;
+    
+}
+.artstore .column-form__textarea:focus,
+.artstore .column-form__textarea:hover {
+    background: #ffffff;
+}
+.artstore .column-form__textarea::placeholder {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 158.3%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+    color: rgba(0, 0, 0, 0.5);
+    
+}
+.artstore .content-forsales__text {
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+.artstore .content-forsales__options {
+    font-size: 16px;
+}
+.artstore .content-forsales__img {
+    min-height: 700px;
+}
+.artstore .artstore-artsets .content-forsales__img .popup-link {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 366px;
+}
+.artstore .content-forsales__img .popup-link img {
+   vertical-align: top;
+}
+
 @media (max-width: 1450px) {
     .container {
         padding: 0 50px;
@@ -1882,7 +2983,9 @@ body {
         padding: 60px 0;
         font-size: 60px;
     }
-
+    .header__list-link {
+        font-size: 36px;
+    }
     .header {
         padding: 25px 25px 0;
     }
@@ -1891,18 +2994,25 @@ body {
         bottom: 12%;
         width: 245px;
     }
-
+    .header__nav {
+        left: 72px;
+    }
     .header__list-link::after {
         right: 15%;
-        top: 31%;
+        top: 39%;
         width: 245px;
     }
-
+    .header__list {
+        padding: 120px 59px 120px 0;
+    }
+    .hero__content {
+       padding-left: 10px; 
+    }
     /*Hero*/
     .hero__content-img-1,
     .hero__content-img-2,
     .hero__content-img-3 {
-        height: 700px;
+        height: 570px;
     }
 
     /*About*/
@@ -1923,8 +3033,13 @@ body {
 /*         padding-top: 30px; */
         align-self: flex-start;
     }
+    .about__task-row,
+    .about__task-row span{
+        font-size: 36px;
+    }
 
     .block-left__info {
+        font-size: 27px;
 /*         right: 30px;
         bottom: 135px; */
     }
@@ -1948,6 +3063,7 @@ body {
 
     .hero_phone {
         width: 270px;
+        font-size: 28px;
         white-space: nowrap;
     }
 
@@ -2061,7 +3177,577 @@ body {
         margin-bottom: 30px;
     }
     .main-schoolicon .main-screen__content {
-        top: 70%;
+        top: 55%;
+    }
+    .main-index .content-block-left {
+        align-self: flex-start;
+    }
+    .hero {
+        margin-bottom: 110px;
+    }
+    .block-right__text {
+/*         font-size: 24px; */
+    }
+    .content-block-left {
+        flex: 0 1 50%;
+    }
+    .block-left__founder {
+        margin: 0;
+    }
+    .about__more-text {
+        font-size: 36px;
+    }
+    .schoolicon__text {
+        font-size: 32px;
+    }
+    .main-schoolicon .schoolicon__text {
+        font-size: 32px;
+    }
+    .hero__sidebar {
+        padding: 15px 0;
+    }
+    .schedule .main-screen__content {
+        top: 55%;
+    }
+    .schedule .screen-content__title {
+        margin-bottom: 20px;
+    }
+    /*ARTSCHOOL*/
+    .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+        margin-bottom: 15px;
+        
+    }
+    
+    .artschool .about .content-block__sign {
+        bottom: 0;
+    }
+    .artschool .schoolicon__content-block-2 .block-right__text {
+        font-size: 45px;
+/*         padding: 242px 25px 130px 80px; */
+    }
+    .artschool .schoolicon__content-block-2 .content-block-right {
+        padding: 242px 0 130px 77px;
+
+    }
+    .tutors-works__slide {
+        min-height: 532px;
+    }
+    .artschool .slide-works__column-1 {
+        display: none;
+    }
+    .artschool .slide-works__column-2 {
+        flex: 1 1 100%;
+    }
+    .main-index .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
+        background-size: cover;
+        min-height: 875px;
+    }
+    .main-index .about__content-block {
+        margin-bottom: 40px;
+    }
+    .main-index .advantages__title {
+        margin-bottom: 233px;
+    }
+    .main-index .column-content__item:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .main-index .column-content__list {
+        min-height: auto;
+    }
+    .artschool  .schoolicon .schoolicon__content-block-left,
+    .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 600px;
+    }
+    .artschool .block-right__text,
+    .main-schoolicon .block-right__text {
+        font-size: 32px;
+    }
+    .artschool .schoolicon .about__content-block {
+        margin-bottom: 0;
+    }
+    .artschool .schoolicon__text {
+        font-size: 32px;
+    }
+    .artschool .schoolicon__text:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .artschool .content-block-2 .block-right {
+        margin-bottom: 20px;
+    }
+    .artschool .tutors .tutors-works {
+        margin-bottom: 20px;
+    }
+    .artschool .tutors .content-block__subtitle {
+        margin-bottom: 20px;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 600px;
+    }
+    .artschool .schoolicon__text:not(:last-child) {
+        margin-bottom: 30px;
+    }
+    .tutor-popup .about__content .content-block-left {
+        min-height: 646px;
+    }
+    .tutor-popup .block-right__text {
+        font-size: 28px;
+    }
+    .tutor-popup .content-block__tutorart {
+        width: 100px;
+        height: 100px;
+    }
+    .tutor-popup .about__content-block {
+        margin-bottom: 35px;
+    }
+    .tutor-popup .classes-content__columns-3 .tutor-popup__column-title {
+/*         padding-top: 15px; */
+        font-size: 28px;        
+    }
+    .tutor-popup .classes-content__columns-1 {
+        align-items: flex-start;
+    }
+/*     .tutor-popup .columns-info-page__item .columns-info-page__link:first-child {
+        margin-bottom: 0;
+    } */
+    .tutor-popup .classes-content__columns-1 .columns-info-page__item:last-child, .classes-content__columns-3 .columns-info-page__item:last-child {
+        padding-bottom: 0;
+    }
+    .tutor-icon__header .hero__social,
+    .tutor-icon__header .hero_phone {
+        display: none;
+    } 
+    .tutor-icon__header .hero__sidebar {
+        padding: 30px 0;
+        top: 0;
+        height: auto;
+        border: none;
+    }
+    .tutor-icon .tutor-icon__text {
+        font-size: 28px;
+    }
+    .main-screen {
+        margin: -109px auto 150px;
+    }
+    .sign-up__popup .column-form__textarea {
+        margin-bottom: 0;
+    }
+    .popup-artstore-page .column-form__textarea {
+        margin-bottom: 20px;
+    }
+    .main-index .hero__content-img-1, .main-index .hero__content-img-2, .main-index .hero__content-img-3 {
+        height: 604px;
+    }
+    .main-index .about .about__qoute-text {
+        padding: 0 50px;
+        background-size: 30px;
+    }
+    .main-index .about__qoute-text-2::before, 
+    .main-index .about__qoute::before,
+    .main-index .about__qoute::after,
+    .main-index .content-block-2 .block-right::before,
+    .main-index .about__task::after {
+        background-size: 50px;
+    }
+    .main-index .content-block-2 .block-right::after {
+        display: none;
+    }
+    .main-index .about__more::before {
+        background-size: 35px;
+    }
+    .main-index .about__qoute::after {
+        background-position-y: 0;
+    }
+    .main-index .about__task::after{
+        background-position: 128% 93%;
+
+    }
+    .main-index .block-right__text, .about__content .block-right__text:first-child {
+        font-size: 32px;
+    }
+    .container {
+        padding: 0px 100px;
+    }
+    .main-index .content-block-1 .block-right {
+        background-size: 50px;
+    }
+    .main-index .block-left__info {
+        font-size: 20px;
+    }
+    .main-index .about__task {
+        margin-bottom: 50px;
+        padding: 0;
+    }
+    .main-index .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
+        min-height: 670px;
+    }
+    .main-index .about__more-text-1 {
+        padding-left: 100px;
+    }
+    .main-index .about__more-arrow {
+        transform: translateY(0);
+    }
+    .main-index .advantages__title {
+        margin-bottom: 150px;
+    }
+    .main-index .advantages .column-content-left::before, .column-content-right::before {
+        width: 170px;
+        height: 170px;
+        background-size: 96%;
+    }
+    .main-index .advantages .column-content__list {
+        padding: 85px 30px;
+    }
+    .main-index .column-content__item {
+        font-size: 32px;
+        padding-left: 32px;
+        min-height: 95px;
+        background-position-y: 18px;
+    }
+    .main-index .content-block-1 .block-right::after {
+        display: none;
+    }
+    .main-schoolicon .schoolicon .content-block-1  .schoolicon__content-block-left {
+        min-height: 674px;
+    }
+    .main-schoolicon .schoolicon .about__content-block {
+        margin-bottom: 0;
+    }
+    .main-schoolicon .schoolicon__text {
+        margin-bottom: 35px;
+    }
+    .main-schoolicon .schoolicon__content-block-2 .content-block-right {
+        padding: 458px 0 135px 100px;
+    }
+    .main-schoolicon .section-offset {
+        margin-bottom: 100px;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 502px;
+/*         min-height: auto; */
+        background-size: contain;
+        flex: 0 1 70%;
+    }
+    .artschool .content-block__sign .content-block__title, 
+    .main-schoolicon .content-block__sign .content-block__title {
+        font-size: 32px;
+    }
+    .artschool .tutors .content-block__subtitle,
+    .main-schoolicon .tutors .content-block__subtitle {
+        margin-bottom: 25px;
+        font-size: 24px;
+    }
+    
+    .main-schoolicon .artschool .block-right__text, .main-schoolicon .block-right__text {
+        font-size: 24px;
+    }
+    .main-schoolicon .content-block-2 .block-right {
+        align-self: center;
+    }
+    .main-schoolicon .schoolicon__text {
+        font-size: 24px;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 502px;
+        flex: 0 1 40%;
+    }
+    .main-schoolicon .tutor-popup .block-right__text:not(:last-child), .main-schoolicon .about__content .block-right__text:first-child {
+        font-size: 24px;
+    }
+    .main-schoolicon .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+        margin-bottom: 25px;
+    }
+    .main-schoolicon .schoolicon .content-block-1 .schoolicon__content-block-left {
+        min-height: 400px;
+        background-size: cover;
+    }
+    .main-schoolicon .content-block-2 .block-right {
+        background-size: 92%;
+        padding: 367px 0px 135px 100px;
+    }
+    .main-schoolicon .tutors .content-block-2 .block-right {
+        padding-top: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+    .main-schoolicon .tutors .schoolicon__content-block-left {
+        min-height: 506px;
+        flex: 0 1 70%;
+        background-size: cover;
+    }
+    .main-schoolicon .about__content {
+        margin-bottom: 15px;
+    }
+    .main-schoolicon .tutors-works__slide {
+        min-height: 482px;
+    }
+    .artschool .tutors__more,
+    .main-schoolicon .tutors__more {
+        font-size: 30px;
+    }
+    .artschool .about__more-arrow,
+    .main-schoolicon .about__more-arrow {
+        height: 30px;
+        width: 100px;
+        background-size: contain;
+        transform: translateY(12px);
+
+    }
+    .main-schoolicon .tutors .tutors-works {
+        margin-bottom: 30px;
+    }
+    .main-schoolicon .content-block-left {
+        flex: 1 1 70%;
+    }
+    .main-schoolicon .tutors-works__slide {
+        flex: 0 1 32%;
+    }
+    .main-index .hero__content-img-1, .main-index .hero__content-img-2, .main-index .hero__content-img-3 {
+        height: 542px;
+    }
+    .artschool .tutor-popup .block-right__text:not(:last-child), .artschool .about__content .block-right__text:first-child, .main-schoolicon .tutor-popup .block-right__text:not(:last-child), .main-schoolicon .about__content .block-right__text:first-child {
+        font-size: 24px;
+    }
+    .artschool .block-right__text, .main-schoolicon .block-right__text {
+        font-size: 24px;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 485px;
+    }
+    .artschool .schoolicon__text:not(:last-child) {
+        font-size: 24px;
+    }
+    .artschool .schoolicon__content-block-2 .content-block-right {
+        padding: 390px 0 145px 77px;
+        margin-bottom: 0;
+    }
+    .artschool .schoolicon .schoolicon__content-block-2 .schoolicon__content-block-left, .artschool .schoolicon .schoolicon__content-block-1 .schoolicon__content-block-left {
+        min-height: 400px;
+        flex: 0 1 40%;
+    }
+    .artschool .section-offset {
+        margin-bottom: 100px;
+    }
+    .artschool .tutors-works .content-block-left {
+        flex: 1 1 100%;
+    }
+    .artschool .main-screen__content {
+        top: 55%;
+    }
+    .artschool .schoolicon .schoolicon__content-block-2 .schoolicon__content-block-left {
+        min-height: 496px;
+    }
+    .artschool .schoolicon .content-block-1 {
+        margin-bottom: 25px;
+    }
+    .schedule .block-info__title {
+        margin-bottom: 50px;
+        font-size: 24px;
+    }
+    .schedule .schedule-content__table {
+        max-width: 900px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .schedule .ticket-content__title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+    .schedule .ticket-content__item,
+    .schedule .ticket-content__welcome,
+    .schedule .ticket-content__item span {
+        font-size: 24px;
+    }
+
+    .schedule .ticket-content__body {
+        margin-bottom: 50px;
+    }
+    .classes-info .block-info__title {
+        font-size: 24px;
+    }
+    .main-classes .main-screen {
+        margin: -109px auto 50px;
+    }
+    .main-classes .block-info__column {
+        font-size: 23px;
+    }
+    .main-classes .block-info__column {
+        padding: 45px 40px 65px;
+    }
+    .main-classes .block-info__column::before {
+        transform: translate(-30%, -81%);
+    }
+    .main-classes .columns-info-page__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .main-classes .item-info-page__title {
+        padding-top: 10px;
+        margin-bottom: 25px;
+        line-height: 1;
+    }
+    .artstore .section-offset, .artstore .block-offset {
+        margin-bottom: 100px;
+    }
+    .artstore .main-screen {
+        margin: -109px auto 50px;
+    }
+    .artstore .block-info__title {
+        font-size: 24px;
+    }
+    .artstore .artstore-order__text-1 {
+        margin-bottom: 25px;
+    }
+    .artstore-order .columns-info-page {
+        margin-bottom: 0;
+    }
+    .artstore .content-forsales__text {
+        font-size: 24px;
+    }
+    .artstore .content-forsales__img {
+        min-height: auto;
+        padding: 50px;
+    }
+    .artstore .content-forsales__text {
+        margin-bottom: 0;
+    }
+    .artstore .artstore-artsets {
+        margin-bottom: 50px;
+    }
+    .artstore .artstore-form__title {
+        font-size: 48px;
+    }
+    .artstore .artstore-form-text {
+        margin-bottom: 30px;
+        font-size: 24px;
+    }
+    .artstore .column-form__input::placeholder,
+    .artstore .column-form__textarea::placeholder {
+        font-size: 24px;
+    }
+    .artstore .column-form__input,
+    .artstore .column-form__textarea {
+        margin-bottom: 10px;
+        padding: 10px 0 10px 24px;
+    }
+    .artstore .column-form__input {
+/*         margin-bottom: 10px; */
+        font-size: 24px;
+    }
+    .artstore .column-form__textarea {
+        min-height: 200px;
+        margin-bottom: 20px;
+    }
+    .artstore .artstore-form__dec {
+        display: flex;
+        align-items: flex-end;
+    }
+    .artstore .column-form__content {
+        flex: 0 1 79%;
+    }
+    .artstore .artstore-form__content {
+        padding: 50px 80px;
+    }
+    .artstore .column-form__label {
+        font-size: 24px;
+    }
+    .artstore .content-forsales__title,
+    .artstore .content-forsales__subtitle {
+        font-size: 24px;
+    }
+    .artstore .content-forsales__btn {
+        position: relative;
+        z-index: 2;
+    }
+    .news .content-news__text {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .news .content-news__title {
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+    .news .content-news__link,
+    .news .content-news__btn {
+        font-size: 24px;
+    }
+    .contacts .main-screen,
+    .news .main-screen {
+        margin: -109px auto 50px;
+    }
+    .contacts .contacts__content-text {
+        font-size: 24px;
+    }
+    .contacts .my-map__container {
+        height: 470px;
+    }
+    .contacts .item-column__title {
+        font-size: 24px;
+    }
+    .contacts .item-column {
+        margin-bottom: 15px;
+    }
+    .tutors .content-block-2 .schoolicon__content-block-left {
+        background-size: 73%;
+    }
+    .tutor-popup .about__content .content-block-left {
+        background-size: 100%;
+    }
+    .artschool .tutors .content-block-2 .schoolicon__content-block-left {
+        background-size: 88%;
+    }
+    .tutor-popup .block-right__text {
+        font-size: 24px;
+    }
+    .about__content .block-right__text:first-child {
+        font-size: 24px;
+    }
+    
+    .tutor-popup .columns-info-page__item .columns-info-page__link:first-child {
+        margin-bottom: 10px;
+    }
+    .tutor-popup .content-block__tutorart {
+        width: 50px;
+        height: 50px;
+    }
+    .tutor-popup .content-block__sign {
+        margin-bottom: 20px;
+    }
+    .content-block__sign .content-block__title {
+        margin-bottom: 0;
+    }
+    .tutor-popup .about__content .content-block__subtitle {
+        margin-bottom: 10px;
+    }
+    .tutor-popup .content-block-right {
+        align-self: center;
+    }
+    .tutor-icon .tutor-icon__text {
+        font-size: 24px;
+    }
+    .tutor-popup .about__content-block {
+        margin-bottom: 0;
+    }
+    .artschool .art-tutors .content-block-right {
+        align-self: center;
+    }
+    .main-index .about__content .block-right__text:first-child {
+        font-size: 32px;
+    }
+    .main-index .hero__content-img-1, .main-index .hero__content-img-2, .main-index .hero__content-img-3 {
+        background-size: contain;
+    }
+    .main-index .about .content-block-2 .content-block-left {
+        background-size: contain;
+    }
+    .main-index .hero__content {
+        padding-left: 0;
+    }
+    .artstore .content-forsales__img {
+        min-height: 541px;
+    }
+    .artstore .content-forsales__img {
+        padding: 0;
     }
 }
 
@@ -2074,6 +3760,139 @@ body {
     .hero__content {
         padding-left: 65px;
     }
+    .main-index .about__content .block-right__text:first-child {
+        font-size: 24px;
+    }
+    .main-index .block-right__text, .about__content .block-right__text:first-child {
+        font-size: 24px;
+    }
+    .main-index .about__qoute-text {
+        font-size: 48px;
+    }
+    .main-index .about__task-row, .main-index .about__task-row span {
+        font-size: 32px;
+    }
+    .main-index .about .content-block-2 .content-block-left {
+        min-height: 477px;
+    }
+    .main-index .about__more-text {
+        font-size: 24px;
+    }
+    .main-index .about__more-arrow {
+        height: 45px;
+        width: 100px;
+        background-size: contain;
+    }
+    .main-index .column-content__item {
+        font-size: 24px;
+    }
+    .main-index .advantages .column-content-left::before, .main-index .advantages .column-content-right::before {
+        top: -12%;
+        width: 100px;
+        height: 100px;
+    }
+    .main-index .advantages .column-content__list {
+        padding: 60px 30px;
+    }
+    .main-index .advantages__title {
+        margin-bottom: 100px;
+    }
+    .main-index .hero__content-img-1, .main-index .hero__content-img-2, .main-index .hero__content-img-3 {
+        height: 461px;
+    }
+    .footer__list-link {
+        font-size: 18px;
+
+    }
+    .footer__list-item:nth-child(7) {
+        text-align: right;
+    }
+    .tutors .content-block-2 .schoolicon__content-block-left {
+        background-size: contain;
+    }
+    .artschool .schoolicon__content-block-2 .content-block-right {
+        padding: 357px 0 64px 77px;
+    }
+    .artschool .schoolicon .schoolicon__content-block-2 .schoolicon__content-block-left {
+        min-height: 400px;
+    }
+    .artschool .tutors .content-block-2 .schoolicon__content-block-left {
+        background-size: contain;
+    }
+    .artschool .content-block-2 .block-right {
+        margin-bottom: 0;
+    }
+    .artschool .schoolicon .content-block-1 {
+        margin-bottom: 0;
+    }
+    .tutor-popup .content-block__sign .content-block__title {
+        font-size: 32px;
+    }
+    .tutor-popup .about__content .content-block__subtitle {
+        font-size: 24px;
+    }
+    .tutor-popup .content-block-right {
+        flex: 0 1 50%;
+    }
+    .main-classes .item-info-page__text {
+        font-size: 20px;
+    }
+    .artstore .artstore-order__text {
+        font-size: 20px;
+    }
+    .artstore .item-info-page__text {
+        font-size: 20px;
+    }
+    .artstore .block-info__column {
+        font-size: 18px;
+    }
+    .artstore .content-questions__item {
+        flex: 0 1 48%;
+    }
+    .card-before {
+        font-size: 36px;
+    }
+    .tutor-icon .tutor-icon__text {
+        font-size: 20px;
+    }
+    .tutor-icon .about__content .block-right__text:first-child {
+        font-size: 20px;
+    }
+    .tutor-popup .block-right__text {
+        font-size: 20px;
+    }
+    .tutor-popup .about__content .content-block-left {
+        min-height: 539px;
+    }
+    .tutor-popup .columns-info-page__item.item-info-page {
+        align-self: center;
+    }
+    .main-classes .block-info__column {
+        font-size: 16px;
+    }
+    .tutor-popup .about__content .block-right__text:first-child {
+        font-size: 20px;
+    }
+    .header__list-link {
+        font-size: 24px;
+    }
+    .artstore .content-forsales__options {
+        font-size: 14px;
+    }
+    .artstore .content-forsales__img {
+        min-height: 483px;
+    }
+    .artstore .artstore-artsets .content-forsales__item:nth-child(2) .content-forsales__img,
+    .artstore .artstore-artsets .content-forsales__item:nth-child(3) .content-forsales__img {
+        padding: 0 25px;
+    } 
+    .artstore .artstore-forsales .content-forsales__item .content-forsales__img {
+        padding: 0 25px;
+    } 
+    .artstore .artstore-artsets .content-forsales__text {
+        margin-bottom: 15px;
+    }
+
 }
 
 @media(max-width: 1030px) {
@@ -2082,7 +3901,7 @@ body {
     }
 
     .section-offset {
-        margin-bottom: 50px;
+        margin-bottom: 100px;
     }
     .section-title {
         font-size: 48px;
@@ -2094,7 +3913,7 @@ body {
     }
 
     .hero__sidebar {
-        padding: 40px 0;
+/*         padding: 40px 0; */
     }
 
     .hero__social {
@@ -2127,8 +3946,14 @@ body {
         font-size: 28px;
     }
 
-    .about__content-block {
+    .schoolicon .about__content-block,
+    .artschool .about__content-block {
 /*         flex-wrap: wrap; */
+        margin-bottom: 15px;
+    }
+    .main-index .content-block-left {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
     }
     .about__task-row,
     .about__task-row span {
@@ -2146,32 +3971,43 @@ body {
 
 
     .content-block-left {
-        flex: 0 1 42%;
+/*         flex: 0 1 50%; */
     }
 
     .block-left__info {
 /*         right: 125px;
         bottom: 35px; */
+        font-size: 18px;
     }
-
-
+    .about__more-text {
+        font-size: 24px;
+    }
+    .block-left__founder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main-index .block-right {
+        flex: 1 1 100%;
+    }
     .block-right {
 /*         padding-left: 0; */
-        flex: 0 1 58%;
-        font-size: 18px;
+        padding-left: 20px;
+        flex: 0 1 50%;
+        font-size: 24px;
 /*         max-width: 450px; */
     }
-    .block-right__text-hidden {
+/*     .block-right__text-hidden {
         display: block;
-    }
-    .about .schoolicon__text {
-        display: none;
+    } */
+    .schoolicon__text {
+        font-size: 24px;
     }
     .block-right__text:not(:last-child) {
         margin-bottom: 30px;
     }
     .content-block-2 .content-block-left {
-        margin-bottom: 60px;
+        margin-bottom: 0;
     }
     .content-block-2 .block-right::before {
         display: none;
@@ -2417,7 +4253,10 @@ body {
     }
     .about .content-block-2 .content-block-left, 
     .schoolicon .schoolicon__content-block-left {
-        min-height: 496px;
+        min-height: 548px;
+    }
+    .main-index .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
+        min-height: 640px;
     }
 /*     .main-schoolicon .main-screen__content {
         top: 70%;
@@ -2454,9 +4293,9 @@ body {
     .tutors .about__content-block {
         margin-bottom: 0;
     }
-    .tutors .schoolicon__text {
+    .schoolicon__text {
         margin-bottom: 50px;
-        font-size: 16px;
+        font-size: 24px;
     }
     .tutors .content-block-2 .block-right {
         margin-bottom: 30px;
@@ -2477,18 +4316,292 @@ body {
     .tutors-works__slide {
         min-height: 373px;
     }
-    .tutors-works {
+    .tutors .tutors-works {
         margin-bottom: 50px;
     }
     .tutors__more {
         font-size: 24px;
+        display: inline;
     }
+
     .about__more-arrow {
         margin-left: 15px;
         height: 35px;
         width: 100px;
         transform: translateY(45%);
         background-size: contain;
+    }
+    .block-left__founder {
+        margin: 0;
+    }
+    .schoolicon__text {
+        margin-bottom: 50px;
+    }
+
+    /*ARTSCHOOL*/
+    .artschool .schoolicon__content-block-2 .block-right__text {
+        font-size: 38px;
+    }
+    .artschool .schoolicon__content-block-2 .content-block-right {
+        padding: 119px 0 88px 0px;
+    }
+    .main-index .about__content-block {
+        margin-bottom: 0;
+    }
+    .main-index .about__task {
+        margin-bottom: 40px;
+    }
+    .main-index .about__more {
+        margin-bottom: 0;
+        padding-top: 40px;
+    }
+    .main-index .about__more::before {
+        display: none;
+    }
+    .main-index .advantages__title {
+        margin-bottom: 80px;
+        margin-top: -80px;
+    }
+    .main-index .column-content__item {
+        min-height: 85px;
+        font-size: 24px;
+    }
+    .main-index .column-content-left::before, .column-content-right::before {
+        width: 75px;
+    }
+    .main-schoolicon .block-right__text {
+        font-size: 24px;
+    }
+    .main-schoolicon .schoolicon__text {
+        font-size: 24px;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 590px;
+    }
+    .main-schoolicon .tutors .tutors-works {
+        margin-bottom: 20px;
+    }
+    .main-schoolicon .schoolicon__content-block-2 .content-block-right {
+        padding: 195px 0 161px 35px;
+        text-align: left;
+    }
+    
+    .main-schoolicon .schoolicon__content-block-2 .block-right__text {
+        font-size: 32px;
+    }
+    .main-schoolicon .about .content-block__sign {
+        bottom: 27%;
+    }
+    .artschool .schoolicon__content-block .content-block-right .block-right__text {
+        font-size: 24px;
+    }
+    .artschool .schoolicon__text {
+        font-size: 24px;
+    }
+    .artschool .schoolicon .about__content-block {
+        margin-bottom: 20px;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 605px;
+    }
+    .artschool .block-left__info .content-block__subtitle {
+        font-size: 16px;
+    }
+    .artschool .works-galery .content-block-left {
+        flex: 1 1 100%;
+    }
+    .tutor-popup .content-block__sign .content-block__title {
+        font-size: 24px;
+        line-height: calc(32 / 24);
+    }
+    .tutor-popup .content-block__tutorart {
+        display: none;
+    }
+    .tutor-popup .about__content .content-block__subtitle {
+        margin-bottom: 0;
+    }
+    .tutor-popup .content-block__sign {
+        margin-bottom: 20px;
+    }
+    .tutor-popup .about__content .content-block-left {
+        min-height: 505px;
+    }
+    .tutor-popup .classes-content__columns-1,
+    .tutor-popup .classes-content__columns-3 {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .tutor-popup .columns-info-page__item {
+        flex: 1 1 100%;
+    }
+/*     .tutor-popup .columns-info-page__item img {
+        max-width: 100%;
+        height: auto;
+    } */
+    .tutor-popup .classes-content__columns-1 .columns-info-page__item:last-child, .classes-content__columns-3 .columns-info-page__item:last-child {
+        padding: 0;
+    }
+    .tutor-popup .columns-info-page__img {
+        flex: 0 1 50%;
+    }
+    .tutor-popup .columns-info-page__img {
+        flex: 0 1 50%;
+    }
+    .tutor-popup .classes-content__columns-3 .columns-info-page__img {
+        order: 2;
+    }
+    .tutor-popup .columns-info-page__item .columns-info-page__link:first-child {
+        margin-bottom: 20px;
+    }
+    .tutor-popup .classes-content__columns-1, .tutor-popup .classes-content__columns-3 {
+        justify-content: center;
+    }
+    .main-index .hero__content-img.hero__content-img-1,
+    .main-index .hero__content-img.hero__content-img-2,
+    .main-index .hero__content-img.hero__content-img-3 {
+        height: 412px;
+    }
+    .main-schoolicon .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+        font-size: 24px;
+    }
+    .main-index .block-right__text, .about__content .block-right__text:first-child {
+        font-size: 24px;
+    }
+    .main-index .content-block-left {
+        flex: 1 1 48%;
+    }
+    .main-index .content-block__title,
+    .main-index .content-block__subtitle {
+        font-size: 16px;
+    }
+    .main-index .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
+        min-height: 430px;
+    }
+/*     .main-index .main-schoolicon .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+        margin-bottom: 15px;
+    } */
+    .main-index .block-right__text:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    .main-index .advantages .column-content-left::before, .column-content-right::before {
+        width: 75px;
+        height: 75px;
+    }
+    .main-index .advantages .column-content__list {
+        padding: 35px 30px;
+    }
+    .main-index .about__task-row, .about__task-row span {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    .header__nav {
+        background-size: 200px;
+    }
+    .main-schoolicon .content-block-1 .block-right {
+        flex: 63%;
+    }
+    .main-schoolicon .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+    .main-schoolicon .schoolicon__text {
+        font-size: 20px;
+    }
+    .main-schoolicon .block-right__text {
+        font-size: 20px;
+    }
+    .main-schoolicon .content-block-2 .block-right {
+        align-self: flex-start;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 544px;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 462px;
+    }
+    .main-schoolicon .tutors-works__slide {
+        min-height: 383px;
+    }
+    .section-title {
+        padding: 30px 0;
+        font-size: 36px;
+        background-size: 60%;
+    }
+    .header__list-link {
+        font-size: 24px;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 647px;
+    }
+    .artschool .block-right__text:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    .artschool .schoolicon__content-block-2 .content-block-right {
+        padding: 309px 0 88px 0px;
+    }
+    .artschool .schoolicon .schoolicon__content-block-2 .schoolicon__content-block-left {
+        min-height: 397px;
+    }
+    .tutor-popup .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+        font-size: 28px;
+    }
+    
+    .main-schoolicon .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 540px;
+    }
+    .main-classes .block-info__column {
+        font-size: 16px;
+    }
+    .main-classes .item-info-page__title {
+        padding-top: 30px;
+    }
+    .main-classes .tutor-popup .classes-content__columns-1 .columns-info-page__item:last-child, .classes-content__columns-3 .columns-info-page__item:last-child {
+        padding-left: 25px;
+    }
+    .artstore .block-info__column {
+        font-size: 16px;
+    }
+    .artstore .block-info__column::before {
+        transform: translate(-50%, -48%);
+        width: 75px;
+        height: 75px;
+    }
+    .artstore .questions__card {
+        height: 230px;
+    }
+    .tutor-popup .block-right__text {
+        font-size: 24px;
+    }
+    .about__content .block-right__text:first-child {
+        font-size: 24px;
+    }
+    .tutor-icon .tutor-icon__text {
+        font-size: 24px;
+    }
+    .tutor-popup .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+        font-size: 24px;
+    }
+
+    .tutor-popup .about__content .content-block-left {
+        background-size: 88%;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 460px;
+    }
+    .main-schoolicon .about__content .block-right__text:first-child {
+        font-size: 20px;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left {
+        min-height: 567px;
+    }
+    .main-index .about__content .block-right__text:first-child {
+        font-size: 24px;
+    }
+    .main-index .about__qoute-text {
+        font-size: 48px;
+    }
+    .tutor-icon .about__content .block-right__text:first-child {
+        font-size: 24px;
     }
 }
 
@@ -2501,7 +4614,7 @@ body {
     }
     
     .section-title {
-        margin-bottom: 70px;
+/*         margin-bottom: 70px; */
         padding: 31px 0;
         font-size: 36px;
         line-height: 1.5;
@@ -2518,14 +4631,17 @@ body {
     .header {
         padding: 10px 0 0;
     }
+    .header-index {
+        padding: 25px 25px 0;
+    }
     .header__list {
         margin: 0;
         padding: 120px 0;
     }
 
     .header__list-link {
-        font-size: 16px;
-        line-height: 1;
+        font-size: 32px;
+        line-height: 1.5;
     }
     .header__nav {
         left: 0;
@@ -2559,7 +4675,7 @@ body {
 /*         font-family: 'Playfair Display'; */
         font-style: normal;
         font-weight: 400;
-        font-size: 20px;
+        font-size: 24px;
         line-height: 150%;
     }
 
@@ -2677,12 +4793,13 @@ body {
     }
     .content-block-left {
         margin-bottom: 50px;
-        min-height: 742px;
-        min-height: 600px;
+/*         min-height: 742px;
+        min-height: 600px; */
+        flex: 1 1 100%;
     }
 
     .about .content-block-2 .content-block-left {
-        min-height: 400px;
+        min-height: 650px;
     }
 
     .about .content-block-2 .block-right {
@@ -2690,16 +4807,21 @@ body {
         position: static;
         flex: 1 1 100%;
     }
+    .main-index .about .content-block-2 .block-right {
+        padding: 0;
+    }
     .content-block-2 .block-right {
-        position: static;
-        flex: 1 1 100%;
+ /*        display: none; */
     }
 
+    .about__more-arrow {
+        right: -32%;
+    }
     .tutors .content-block__subtitle {
         margin-bottom: 20px;
     }
-    .tutors .schoolicon__text {
-        font-size: 20px;
+    .schoolicon__text {
+        font-size: 24px;
     }
     .tutors-works__slide {
         min-height: 264px;
@@ -2710,12 +4832,13 @@ body {
 
     .block-right__text:not(:last-child) {
         margin-bottom: 22px;
+        font-size: 24px;
     }
 
     .block-right__text:last-child {
-        position: absolute;
+/*         position: absolute;
         left: 0;
-        bottom: 0;
+        bottom: 0; */
     }
 
     .block-left__info {
@@ -2739,6 +4862,9 @@ body {
     .about__content-block {
        flex-wrap: wrap;
     }
+    .main-index .about__content-block {
+        margin-bottom: 50px;
+    }
     .block-right {
         padding: 0;
     }
@@ -2746,6 +4872,7 @@ body {
     .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
         flex: 1 1 100%;
         background-position: center;
+/*         margin-bottom: 30px; */
     }
 
     .about__task-row {
@@ -2918,6 +5045,235 @@ body {
     .tutors__more {
         position: relative;
     }
+
+    /*ARTSCHOOL*/
+    .content-block-1 .block-right {
+        background-image: none;
+    }
+    .artschool .tutors .schoolicon__content-block-left {
+        margin-bottom: 30px;
+    }
+    .artschool .block-left__info .content-block__title,
+    .artschool .block-left__info .content-block__subtitle {
+        font-size: 16px;
+    }
+    .artschool .art-tutors .tutors-works__slide {
+        background-size: contain;
+    }
+    .slide-works__column-2-top {
+        min-height: 270px;
+    }
+    .slide-works__column-2-bottom {
+        min-height: 173px;
+    }
+    .main-index .about__task {
+        margin-bottom: 20px;
+        padding-top: 70px;
+        padding-bottom: 130px;
+        background: url('../img/icons/dec-12.svg') top no-repeat;
+        background-size: 100%;
+    }
+    .main-index .about__task::after {
+        bottom: 11%;
+    }
+    .main-index .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
+        margin-bottom: 20px;
+        min-height: 975px;
+    }
+    .main-index .about__content-block {
+        margin-bottom: 0;
+    }
+    .main-index .about__task-row.about__task-row-5 {
+        text-align: right;
+    }
+    .main-schoolicon .about .content-block-2 .block-right {
+        padding: 171px 0 171px 72px;
+    }
+    .main-schoolicon .schoolicon__content-block-2 .block-right__text {
+        font-size: 42px;
+        line-height: 1.25;
+    }
+    .main-schoolicon .about .content-block__sign {
+        bottom: 10%;
+    }
+    .artschool .about .content-block__sign {
+        bottom: 10%;
+        right: 16%;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 624px;
+    }
+    .artschool .tutors .content-block-2 .block-right {
+        margin-bottom: 0;
+    }
+    .tutor-popup .content-block-left {
+        background-size: contain;
+    }
+    .tutor-popup .about__content .content-block-left {
+/*         min-height: 888px; */
+        background-size: contain;
+    }
+    .tutor-popup .columns-info-page__item .columns-info-page__link:first-child {
+        margin-bottom: 20px;
+    }
+    .tutor-popup .block-right__text {
+        font-size: 24px;
+    }
+    .tutor-popup .tutor-popup__list {
+        margin-bottom: 20px;
+    }
+    .tutor-icon .tutor-icon__text {
+        font-size: 24px;
+    }
+    .header__nav {
+        background-size: 30%;
+/*         height: 100%; */
+    }
+    .header__list {
+        padding: 50px 0 0;
+        height: 100%;
+        justify-content: center;
+    }
+    .header__list-link {
+        font-size: 32px;
+    }
+    .main-index .hero__content-img.hero__content-img-1, .main-index .hero__content-img.hero__content-img-2, .main-index .hero__content-img.hero__content-img-3 {
+        height: 350px;
+    }
+    .main-index .about__task {
+        padding-bottom: 0;
+    }
+    .main-schoolicon .about .content-block-2 .block-right {
+        padding: 278px 0 171px 72px;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        flex: 1 1 100%;
+    }
+    .main-schoolicon .schoolicon .content-block-1 .schoolicon__content-block-left {
+        background-size: contain;
+    }
+    .artschool .schoolicon .schoolicon__content-block-2 .schoolicon__content-block-left {
+        flex: 1 1 100%;
+    }
+    .artschool .about .content-block-2 .block-right {
+        padding: 255px 0;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left {
+        min-height: 500px;
+        background-size: contain;
+    }
+    .main-classes .block-info__column {
+        padding: 25px 20px 25px;
+    }
+    .artstore .block-info__column::before {
+        width: 53px;
+    }
+    .artstore .content-forsales__text {
+        font-size: 16px;
+    }
+    .artstore .content-forsales__text {
+        padding-top: 20px;
+    }
+    .artstore .artstore-form__dec {
+        display: none;
+    }
+    .artstore .column-form__content {
+        flex: 1 1 100%;
+    }
+    .text-center {
+        font-size: 24px;
+    }
+    .thanks-text {
+        font-size: 16px;
+    }
+    .thans-link {
+        font-size: 14px;
+    }
+    /*VISITCARD*/
+    .body-vcard-left {
+        padding-left: 45px;
+    }
+    .body-vcard-right__link {
+        padding: 10px 20px 10px 40px;
+    }
+    .body-vcard-right__link:first-child{
+        background-position: 10px;
+    }
+    .body-vcard-right__link:nth-child(2) {
+        background-position: 10px;
+    }
+    .body-vcard-right__link:nth-child(3) {
+        background-position: 7px;
+    }
+    .body-vcard-right__link:nth-child(4) {
+/*         min-width: 400px; */
+        background-position: 10px;
+        border-radius: 40px 0 0 40px;
+    }
+    .body-vcard-right {
+        flex: 1 1 65%;
+    }
+    .body-vcard-right__link span {
+        display: block;
+    }
+
+    .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        background-size: 70%;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 551px;
+    }
+    .main-schoolicon .about .content-block-2 .content-block-left {
+        background-size: 100%;
+    }
+    .artschool .about__more-arrow,
+    .main-schoolicon .about__more-arrow {
+        transform: translateY(100%);
+    }
+    .main-schoolicon .tutors-works__slide {
+        min-height: 273px;
+    }
+
+    .main-schoolicon .tutors .content-block-2 .block-right {
+        margin-bottom: 0;
+    }
+    .artschool .tutors .content-block-2 .schoolicon__content-block-left {
+        margin-bottom: 0;
+        background-size: 63%;
+    }
+    .main-index .about__more-text-1 {
+        padding-left: 0;
+    }
+    .main-index .about__more-arrow {
+        transform: translateY(50%);
+        right: -50px;
+    }
+    .tutors-works__wrapper {
+        column-gap: 10px;
+    }
+    .main-index .about__qoute-text {
+        font-size: 36px;
+    }
+    .artstore-order .columns-info-page__item:first-child {
+        flex: 1 1 100%;
+    }
+    .tutor-popup .content-block-right {
+        flex: 1 1 100%;
+    }
+    .main-index .about__more-arrow {
+        transform: translateY(-50%);
+        left: 0;
+        top: 50%;
+    }
+    .artstore .content-forsales__img {
+        min-height: 331px;
+    }
+    .artstore .artstore-artsets .content-forsales__options {
+        font-size: 10px;
+    }
+    .artstore .artstore-artsets .content-forsales__btn::before {
+        top: -325%;
+    }
 }
 
 @media (max-width: 577px) {
@@ -2943,7 +5299,7 @@ body {
     }
 
     .swiper {
-        max-height: 400px;
+        max-height: 100%;
     }
 
     .header {
@@ -3038,17 +5394,18 @@ body {
     }
 
     .block-right {
-        padding-bottom: 50px;
+/*         padding-bottom: 50px; */
         background: url('../img/icons/dec-12.svg') bottom no-repeat;
         background-size: 100%;
     }
     .block-right__text-hidden,
     .block-right__text {
-        font-size: 14px;
+/*         font-size: 14px; */
     }
 
     .block-right__text:last-child {
         position: static;
+        font-size: 20px;
     }
 
     .about__task {
@@ -3068,7 +5425,9 @@ body {
         background: url('../img/icons/dec-12.svg') bottom no-repeat;
         background-size: 100%;
     }
-    
+    .block-right__text {
+
+    }
     .content-block-2 {
         flex-wrap: wrap;
         column-gap: 0;
@@ -3076,7 +5435,7 @@ body {
 
     .content-block-2 .content-block-left {
         margin-bottom: 30px;
-        min-height: 415px;
+        min-height: 555px;
     }
 
     .about__more-text {
@@ -3132,7 +5491,9 @@ body {
     }
     .footer__list-link {
         display: block;
+        padding: 5px 0;
         font-size: 12px;
+
     }
     .footer__call {
         display: none;
@@ -3229,26 +5590,389 @@ body {
     }
     .block-right, 
     .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
-        margin-bottom: 30px;
+/*         margin-bottom: 50px; */
+
+    }
+    .main-index .content-block-right.block-right.flex {
+        padding-bottom: 50px;
+    }
+    .content-block-1 .block-right {
+        margin-bottom: 0;
     }
     .schoolicon .about__content-block {
         margin-bottom: 0;
     }
     .schoolicon__content-block-2 .block-right__text:not(:last-child) {
-        font-size: 32px;
+        font-size: 34px;
+    }
+    .schoolicon__content-block-2 .block-right__text {
+        text-align: left;
     }
     .tutors .schoolicon__text {
-        font-size: 14px;
+/*         font-size: 14px; */
     }
     .tutors .content-block-2 .block-right {
         padding-bottom: 0;
+    }
+    .section-offset {
+/*         margin-bottom: 50px; */
+    }
+    .screen-content__title {
+        font-size: 36px;
+    }
+    .about .content-block-2 .block-right {
+        margin-bottom: 100px;
+        padding: 163px 42px 70px;
+    }
+    .about .content-block__sign {
+        font-size: 24px;
+        bottom: 12%;
+    }
+    .tutors__more {
+/*         font-size: 16px; */
+ 
+    }
+    .about__more-arrow {
+/*         height: 20px; */
+    }
+    .tutors .tutors-works__slide {
+        min-height: 425px;
+        flex: 1 1 100%;
+    }
+
+    /*ARTSTORE*/
+    .artschool .about .content-block__sign {
+       right: 16%;
+       bottom: 11%;
+    }
+    .tutors-works__wrapper {
+        flex-wrap: wrap;
+    }
+    .tutors-works__slide:not(:last-child) {
+/*         margin-bottom: 10px; */
+    }
+    .slide-works__column-2-top {
+        min-height: 270px;
+        flex-wrap: wrap;
+    }
+    .artschool .art-tutors .tutors-works__slide {
+        background-size: cover;
+    }
+    .slide-works__column-2-top {
+        min-height: 815px;
+    }
+    .block-right__text:not(:last-child) {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+    .schoolicon__text {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+    .main-index .task-mobile__text {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+    .main-index .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
+        min-height: 748px;
+    }
+    .main-schoolicon .about .content-block-2 .block-right {
+        padding: 171px 0 140px 72px;
+    }
+    .main-schoolicon .schoolicon__content-block-2 .block-right__text {
+        line-height: 1;
+    }
+    .main-schoolicon .about .content-block__sign {
+        bottom: 16%;
+    }
+    .main-schoolicon .schoolicon__text {
+        font-size: 20px;
+    }
+    .main-schoolicon .tutors-works__wrapper {
+        gap: 20px;
+    }
+    .main-schoolicon .tutors-works__slide {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .main-schoolicon .tutors .tutors-works__slide {
+        min-height: 550px;
+    }
+    .artstore {
+        margin-bottom: 70px;
+    }
+    .artschool .schoolicon__content-block-2 .block-right__text:not(:last-child) {
+        font-size: 34px;
+        line-height: 1;
+        margin-bottom: 0;
+    }
+    .artschool .about .content-block-2 .block-right {
+        padding: 163px 42px 107px;
+    }
+    .artschool .about .content-block__sign {
+        bottom: 15%;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 499px;
+    }
+    .artschool .schoolicon .about__content-block {
+        margin-bottom: 0;
+    }
+    .artschool .about .content-block-2 .content-block-left {
+        margin-bottom: 0;
+    }
+    .artschool .schoolicon__content-block-2 .block-right__text:not(:last-child) {
+        font-size: 34px;
+
+    }
+    .tutor-popup .tutor-popup__column-title,
+    .tutor-popup .classes-content__columns-3 .tutor-popup__column-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .tutor-popup {
+        padding: 50px 0;
+    }
+    .tutor-popup .about__content-block {
+        margin-bottom: 0;
+    }
+    .tutor-popup .classes-content__columns-1, .tutor-popup .classes-content__columns-3 {
+        gap: 0;
+    }
+    .tutor-popup .about__content .content-block-left {
+        min-height: 420px;
+    }
+    .tutor-popup .section-title {
+        margin-bottom: 20px;
+    }
+    .tutor-popup__galery_container {
+        gap: 10px;
+    }
+    .tutor-icon .tutor-icon__text {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+    .sign-up__container {
+        padding: 70px 20px 50px;
+    }
+    .sign-up__popup .column-form__input, .column-form__textarea {
+        padding: 10px 0 10px 13px;
+        font-size: 14px;
+    }
+    .popup-artstore .column-form__label {
+        margin-bottom: 15px;
+    }
+    .sign-up__popup .column-form__input::placeholder,
+    .column-form__textarea::placeholder {
+        font-size: 14px;
+    }
+    .popup-artstore .choices__placeholder {
+        font-size: 14px;
+    }
+    .popup-artstore .choices__item {
+        font-size: 14px;
+    }
+    .popup-artstore .choices__inner {
+        font-size: 14px;
+    }
+    .choices__list--single {
+        padding: 10px 0 10px 13px;
+    }
+    .sign-up__popup .btn-blue {
+        padding: 10px 25px;
+        font-size: 18px;
+    }
+    .visit-card__container {
+        padding: 0;
+    }
+    .body-vcard-left {
+        padding-left: 15px;
+    }
+    .visit-card__content::before {
+        background-size: 400px;
+        background-position-y: 26px;
+    }
+    .visit-card__title {
+        margin: 0 auto;
+        margin-bottom: 50px;
+        max-width: 200px;
+        font-size: 16px;
+        line-height: calc(21 / 16);
+    }
+    .visit-card__content {
+        padding-top: 110px;
+    }
+    .body-vcard {
+        display: flex;
+        flex-direction: column;
+    }
+    .body-vcard-left__item {
+        margin-bottom: 18px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: calc(19 / 14);
+        color: var(--brown);
+    }
+    .body-vcard-left {
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 270px;
+    }
+    .body-vcard-left__item:nth-child(1) {
+        margin-right: 8px;
+    }
+    .body-vcard-left__item:nth-child(2) {
+        position: relative;
+        margin-right: 8px;
+        padding: 0 18px;
+    }
+    .body-vcard-left__item:nth-child(2)::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #F2B950;
+    }
+    .body-vcard-left__item:nth-child(2)::after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #F2B950;
+    }
+    .body-vcard-left__item:nth-child(4) {
+        position: relative;
+        margin-right: 8px;
+        padding: 0 18px;
+    }
+    .body-vcard-left__item:nth-child(6) {
+        margin: 0 auto;
+    }
+    .body-vcard-left__item:nth-child(4)::after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #F2B950;
+    }
+    .tutor-popup .about__content .content-block-left {
+        margin-bottom: 0;
+    }
+    .tutor-popup .block-right__text:not(:last-child) {
+        font-size: 20px;
+    }
+    .main-schoolicon .about__content .block-right__text:first-child {
+        margin-bottom: 15px;
+    }
+    .main-schoolicon .about .content-block-2 .content-block-left {
+        background-size: 61%;
+        margin-bottom: 30px;
+    }
+    .main-schoolicon .about .content-block-2 .block-right {
+        margin-bottom: 0;
+        padding: 218px 0 140px 72px;
+    }
+    .main-schoolicon .about__content {
+        margin-bottom: 0;
+    }
+    .main-schoolicon .about {
+        margin-bottom: 70px;
+    }
+    .main-schoolicon .tutors .section-title {
+        margin-bottom: 0;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        margin-bottom: 0;
+        min-height: 444px;
+    }
+    .main-schoolicon .section-offset {
+        margin-bottom: 70px;
+    }
+    .main-schoolicon .tutors__more {
+        font-size: 24px;
+    }
+    .tutor-popup .about__content .block-right__text:first-child {
+        font-size: 20px;
+    }
+    .artschool .schoolicon__content-block .content-block-right .block-right__text {
+        font-size: 20px;
+    }
+    .artschool .schoolicon__text:not(:last-child) {
+        font-size: 20px;
+    }
+    .artschool .about .content-block-2 .content-block-left {
+        margin-bottom: 30px;
+    }
+    .artschool .about .content-block-2 .block-right {
+        padding: 275px 42px 107px;
+        margin-bottom: 0;
+    }
+    .artschool .section-title {
+        margin-bottom: 0;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left {
+        min-height: 400px;
+    }
+    .artschool .tutors__more {
+        font-size: 24px;
+    }
+    .main-index .about__content .block-right__text:first-child {
+        font-size: 20px;
+    }
+    .main-index .about .content-block-2 .block-right {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .main-index .section-offset {
+        margin-bottom: 100px;
+    }
+    .main-index .advantages .column-content__list {
+        padding: 20px 30px 0px 30px;
+    }
+    .main-index .advantages .column-content-right .column-content__list {
+        padding-bottom: 20px;
+    }
+    .main-index .column-content__item {
+        min-height: 60px;
+    }
+    .main-index .about__qoute-text {
+        font-size: 16px;
+    }
+    .main-index .about__more-arrow {
+        width: 50px;
+    }
+    .artstore .block-info__column {
+        font-size: 12px;
+    }
+    .main-classes .block-info__column {
+        font-size: 10px;
+    }
+    .artstore .content-forsales__img {
+        min-height: 400px;
     }
 }
 
 @media (max-width: 470px) {
 /*General styles*/
     .section-title {
-        display: block;
+        margin-bottom: 20px;
+    }
+    .section-offset {
+        margin-bottom: 65px;
     }
     .block-offset {
         margin-bottom: 30px;
@@ -3258,14 +5982,20 @@ body {
         width: 170px;
         margin: 0 auto;
     }
-
+    .header__list-link {
+        font-size: 20px;
+    }
     .header__content {
         padding-left: 30px;
         flex: 0 0 91%;
     }
 
     .hero__sidebar {
+        padding: 21px 0 0 15px;
+    }
+    .header-index .hero__sidebar {
         padding: 15px 0 0 15px;
+
     }
 
     .hero {
@@ -3273,9 +6003,15 @@ body {
     }
 
     .screen-content__title {
-        font-size: 36px;
+        font-size: 28px;
+/*         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; */
     }
-
+    .screen-content__title span {
+        padding-bottom: 10px;
+    }
     .screen-content-text {
         font-size: 14px;
     }
@@ -3320,7 +6056,7 @@ body {
     }
     /*ARTSTORE*/
     .content-questions {
-        gap: 10px;
+        gap: 20px;
     }
     .content-form {
         flex-wrap: wrap;
@@ -3345,9 +6081,510 @@ body {
         font-size: 12px;
     }
 
+    .main-index .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
+        min-height: 601px;
+        margin-bottom: 15px;
+        background-size: contain;
+    }
+    .tutors .content-block__sign .content-block__title {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+    .tutors .content-block__subtitle {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    .tutors .content-block-2 .block-right {
+        margin-bottom: 15px;
+    }
+    .tutors .schoolicon__text {
+        margin-bottom: 20px;
+    }
+    .tutors-works__wrapper {
+        flex-wrap: wrap;
+
+    }
+    .tutors-works__slide {
+        flex: 1 1 100%;
+    }
+    .art-tutors .tutors-works__slide:not(:last-child) {
+        margin-bottom: 0;
+    }
+    .tutors-works__slide:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    .tutors-works {
+        margin-bottom: 20px;
+    }
+    .tutors__more {
+        font-size: 20px;
+    }
+    .about__more-arrow {
+        top: 0;
+        height: 20px;
+        width: 45px;
+        background-size: contain;
+        margin-left: 15px;
+        transform: translateY(43%);
+    }
+    .main-index .about__more-arrow {
+/*         transform: translateY(117%); */
+        right: auto;
+    }
+    .tutors-works__slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tutors-works__slide img {
+        max-width: 59%;
+    }
+    .block-right__text:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    .about .content-block-2 .block-right {
+        padding: 59px 10px 60px;
+        margin-bottom: 0;
+    }
+    .main-index .about .content-block-2 .block-right {
+        padding: 0;
+    }
+    .schoolicon__content-block-2 .block-right__text:not(:last-child) {
+        font-size: 20px;
+        line-height: 1;
+        margin-bottom: 5px;
+    }
+    .artschool .about .content-block__sign,
+    .about .content-block__sign {
+        bottom: 5%;
+        font-size: 20px;
+    }
+    .tutors-works__slide {
+        min-height: 247px;
+    }
+    .card-after, .questions__card.flipped .card-after {
+        font-size: 12px;
+    }
+
+    .about .content-block-2 .content-block-left {
+        margin-bottom: 30px;
+        min-height: 450px;
+    }
+    .about .schoolicon__text {
+        margin-bottom: 15px;
+    }
+    .art-tutors .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
+        min-height: 375px;
+        margin-bottom: 15px;
+        /* background-size: contain; */
+    }
+    .artschool .tutors .schoolicon__content-block-left {
+        background-size: contain;
+    }
+    .artschool .art-tutors .tutors-works__slide {
+        background-size: cover;
+    }
+    .art-tutors .slide-works__column-2-top {
+        min-height: 542px;
+    }
+    .art-tutors .slide-works__column-2-bottom {
+        flex-wrap: wrap;
+        min-height: 300px;
+    }
+    .about__more-arrow {
+        display: block;
+    }
+    .tutors__more-dec{
+        display: none;
+    }
+    .schoolicon__text,
+    .block-right__text:last-child,
+    .block-right__text:not(:last-child) {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+/*     .content-block-left.schoolicon__content-block-left.block-left {
+        margin-bottom: 0;
+    } */
+    .main-schoolicon .content-block-left.schoolicon__content-block-left.block-left {
+        background-size: 115%;
+    }
+/*     .main-schoolicon .content-block-right.block-right.flex {
+        padding: 75px 10px 60px;
+    } */
+    .main-schoolicon .about .content-block__sign {
+        bottom: 5%;
+    }
+    .content-block-1 .content-block-right.block-right.flex {
+        padding: 0;
+    }
+/*     .content-block__sign {
+        font-size: 20px;
+    } */
+    .content-block-right.block-right.flex {
+    
+    }
+    .main-index .content-block-1 .content-block-right.block-right.flex {
+        margin-bottom: 15px;
+    }
+    .main-index .task-mobile__text {
+        position: relative;
+        padding-top: 50px;
+    }
+    .main-index .task-mobile__text::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../img/icons/dec-12.svg') top no-repeat;
+        background-size: 100%;
+    }
+    .main-index .about__content-block {
+        margin-bottom: 20px;
+    }
+    .main-index .about__more {
+        padding-top: 0;
+    }
+    .main-index .advantages__title {
+        margin-bottom: 0;
+    }
+    .main-index .column-content__item {
+        min-height: 35px;
+        font-size: 14px;
+    }
+    .main-index .column-content__item:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    .artschool .schoolicon__text, 
+    .main-schoolicon .schoolicon__text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .main-schoolicon .schoolicon__content-block-2 .block-right__text:not(:last-child) {
+        font-size: 26px;
+
+    }
+    .main-schoolicon .schoolicon__content-block-2 .content-block-right.block-right.flex {
+        padding: 137px 10px 99px 46px;
+    }
+    .main-schoolicon .about .schoolicon__content-block-2  .content-block__sign {
+        bottom: 8%;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 388px;
+    }
+    .main-schoolicon .tutors .tutors-works__slide {
+        min-height: 360px;
+    }
+    .main-index .task-mobile__text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .artstore {
+        margin-bottom: 70px;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 387px;
+    }
+    .artschool .schoolicon__content-block .content-block-right .block-right__text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .artschool .schoolicon__text:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    .artschool .tutors .tutors-works {
+        margin-bottom: 0;
+    }
+    .artschool .content-block-left {
+        flex-wrap: wrap;
+    }
+    .tutor-popup .tutor-popup__column-title,
+    .tutor-popup .classes-content__columns-3 .tutor-popup__column-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .tutor-popup .about__content .content-block-left {
+        min-height: 340px;
+    }
+    .tutor-popup .section-title {
+        margin-bottom: 0;
+    }
+    .tutor-popup .content-block__sign .content-block__title {
+        margin-bottom: 0;
+/*         font-size: 16px; */
+    }
+    .popup-artstore .column-form__label {
+        margin-bottom: 10px;
+    }
+    .sign-up__popup .column-form__label {
+        font-size: 14px;
+    }
+    .sign-up__popup .artstore-form-text {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    .sign-up__popup {
+        padding: 0 24px;
+    }
+    .sign-up__container {
+        padding: 50px 20px 50px;
+    }
+    .sign-up__close-btn {
+        right: 10px;
+        top: 10px;
+    }
+    .sign-up__popup .column-form__textarea {
+        min-height: 100px;
+    }
+    .main-index .about .about__qoute-text {
+        background-size: 10px;
+    }
+    .main-index .about .about__qoute-text {
+        padding: 0 25px;
+    }
+    .main-index .tutor-popup .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+        font-size: 14px;
+    }
+    .main-index .about__more-text-1 {
+        padding-left: 0;
+    }
+    .main-index .about__more-arrow {
+        height: 35px;
+    }
+    .main-index .advantages .column-content__list {
+        padding-bottom: 0;
+    }
+/*     .main-index .column-content__item:last-child {
+        margin-bottom: 0;
+    } */
+/*     .main-index .advantages .column-content__list {
+        padding: 35px 30px;
+    } */
+    .main-index .column-content__item {
+        min-height: 15px;
+        background-position-y: 5px;
+    }
+    .artschool .tutor-popup .block-right__text:not(:last-child), .artschool .about__content .block-right__text:first-child, .main-schoolicon .tutor-popup .block-right__text:not(:last-child), .main-schoolicon .about__content .block-right__text:first-child {
+        font-size: 14px;
+    }
+    .main-schoolicon .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+        font-size: 14px;
+    }
+    .main-schoolicon .content-block-left.schoolicon__content-block-left.block-left {
+        background-size: 75%;
+    }
+    .main-schoolicon .section-offset {
+        margin-bottom: 50px;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 265px;
+    }
+    .artschool .tutors .content-block__subtitle, .main-schoolicon .tutors .content-block__subtitle {
+        font-size: 14px;
+    }
+    .artschool .tutors__more, .main-schoolicon .tutors__more {
+        font-size: 16px;
+    }
+    .artschool .about__more-arrow, .main-schoolicon .about__more-arrow {
+        height: 20px;
+        width: 30px;
+        transform: translateY(5px);
+    }
+    .main-schoolicon .works-galery .tutors-works__slide {
+        flex: 1 1 100%;        
+    }
+    .artschool .schoolicon__text:not(:last-child) {
+        font-size: 14px;
+    }
+    .artschool .section-offset {
+        margin-bottom: 50px;
+    }
+    .tutor-popup .block-right__text:not(:last-child), .about__content .block-right__text:first-child {
+        font-size: 14px;
+    }
+    .tutor-icon .tutor-icon__text {
+        font-size: 14px;
+    }
+    .schedule .block-info__title {
+        font-size: 16px;
+    }
+    .schedule .ticket-content__title {
+        font-size: 16px;
+    }
+    .schedule .ticket-content__item, .schedule .ticket-content__welcome, .schedule .ticket-content__item span {
+        font-size: 14px;
+    }
+    .classes-info .block-info__title {
+        font-size: 14px;
+    }
+    .main-classes .item-info-page__title {
+        padding-top: 0;
+        margin-bottom: 15px;
+    }
+    .artstore .block-info__title {
+        font-size: 16px;
+    }
+    .artstore .section-offset, .artstore .block-offset {
+        margin-bottom: 50px;
+    }
+    .artstore .artstore-form__title {
+        font-size: 16px;
+    }
+    .artstore .artstore-form__content {
+        padding: 20px 10px;
+    }
+    .artstore .artstore-form-text {
+        margin-bottom: 30px;
+        font-size: 14px;
+    }
+    .artstore .column-form__content {
+        margin-right: 0;
+    }
+    .news .content-news__title {
+        font-size: 16px;
+    }
+    .news .content-news__text {
+        font-size: 14px;
+    }
+    .news .content-news__link, .news .content-news__btn {
+        font-size: 14px;
+    }
+    .contacts .contacts__content-text {
+        font-size: 16px;
+    }
+    .contacts .my-map__container {
+        height: 250px;
+    }
+    .contacts .item-column__title {
+        font-size: 16px;
+    }
+    /*VISITCARD*/
+    .visit-card__content::before {
+        background-size: 250px;
+        background-position-y: 50px;
+    }
+    .visit-card__title {
+        margin-bottom: 30px;
+    }
+    .body-vcard-left {
+        margin-bottom: 25px;
+    }
+    .body-vcard-right__link {
+        transform: translateX(10px);
+    }
+
+    .tutor-popup .about__content .block-right__text:first-child {
+        font-size: 14px;
+    }
+    .artschool .about .content-block-2 .content-block-left {
+        margin-bottom: 0;
+    }
+    .artschool .tutors .content-block-2 .schoolicon__content-block-left {
+        background-size: 54%;
+    }
+    .artschool .tutors .content-block__subtitle {
+        margin-bottom: 15px;
+        font-size: 24px;
+    }
+    .main-schoolicon .content-block-left.schoolicon__content-block-left.block-left {
+        margin-bottom: 20px;
+    }
+    .main-schoolicon .schoolicon__content-block-2 .content-block-right.block-right.flex {
+        padding: 181px 10px 99px 46px;
+        margin-bottom: 30px;
+    }
+    .main-schoolicon .schoolicon__content-block-2 .schoolicon__content-block-left.block-left {
+        background-size: 43%;
+    }
+    .main-schoolicon .tutors .content-block-2 .schoolicon__content-block-left {
+        background-size: 54%;
+    }
+    .main-schoolicon .tutors .content-block__subtitle {
+        margin-bottom: 15px;
+    }
+    .tutor-popup .content-block__sign .content-block__title {
+        font-size: 18px;
+    }
+    .tutor-popup .about__content .content-block__subtitle {
+        font-size: 16px;
+    }
+    .artschool .tutors .content-block__subtitle {
+        font-size: 16px;
+    }
+    .main-schoolicon .content-block-left.schoolicon__content-block-left.block-left {
+        background-size: 81%;
+    }
+    .main-schoolicon .schoolicon .content-block-1 .schoolicon__content-block-left {
+        background-size: 100%;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 436px;
+    }
+    .main-schoolicon .schoolicon__content-block-2 .content-block-right.block-right.flex {
+        padding: 121px 10px 99px 46px;
+    }
+    .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 378px;
+    }
+    .main-schoolicon .tutors .content-block-2 .schoolicon__content-block-left {
+        margin-bottom: 0;
+    }
+    .artschool .about .content-block-2 .block-right {
+        padding: 130px 42px 107px;
+    }
+    .artschool .tutors .content-block-2 .schoolicon__content-block-left {
+        background-size: 100%;
+    }
+    .artschool .schoolicon .schoolicon__content-block-left, .main-schoolicon .schoolicon .schoolicon__content-block-left {
+        min-height: 387px;
+    }
+    .main-index .about__content .block-right__text:first-child {
+        font-size: 14px;
+    }
+/*     .main-index .about__more-arrow {
+        transform: translateY(0);
+    } */
+    .main-index .advantages .column-content-right .column-content__list {
+        padding-bottom: 0;
+    }
+    .main-schoolicon .block-right__text {
+        margin-bottom: 15px;
+    }
+    .main-schoolicon .tutors .content-block-2 .schoolicon__content-block-left {
+        background-size: 100%;
+    }
+    .tutors-works__slide img {
+        max-width: 82%;
+    }
+    .artstore .artstore-order__text {
+        font-size: 14px;
+    }
+    .artstore .item-info-page__text {
+        font-size: 14px;
+    }
+    .artstore .content-questions__item {
+        flex: 1 1 100%;
+    }
+    #sign-up__popup2,
+    #sign-up__popup2 .sign-up__container,
+    #sign-up__popup4,
+    #sign-up__popup4 .sign-up__container{
+        padding: 0;
+    }
+    #sign-up__popup2 .sign-up__container img,
+    #sign-up__popup4 .sign-up__container img {
+        vertical-align: top;
+    }
 
 }
-
+@media (max-width: 470px) {
+    .main-index .about .content-block-2 .content-block-left, .schoolicon .schoolicon__content-block-left {
+        min-height: 480px;
+    }
+}
 .game-section {
     position: relative;
 }
@@ -3378,7 +6615,7 @@ body {
     padding: 30px;
     width: 100%;
     height: 100%;
-    transition: transform 0.7s ease-in-out;
+    transition: transform 0.5s ease-in-out;
     backface-visibility: hidden;
     display: flex;
     justify-content: center;
@@ -3442,3 +6679,6 @@ body {
     text-align: center;
 }
 
+.develop {
+    padding: 50px;
+}
